@@ -1,0 +1,5 @@
+# Halobacteriota model organisms (GTDB species names)
+# Source: archaeal_plasmid_analyses.py section 10
+s__Halobacterium salinarum
+s__Haloarcula marismortui
+s__Haloferax volcanii

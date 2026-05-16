@@ -1,0 +1,8 @@
+# Non-Halobacteriota model organisms (GTDB species names)
+# Source: archaeal_plasmid_analyses.py section 10
+s__Saccharolobus islandicus
+s__Methanocaldococcus jannaschii
+s__Methanothermobacter thermautotrophicus
+s__Pyrococcus abyssi
+s__Thermococcus nautili
+s__Methanococcus maripaludis

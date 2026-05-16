@@ -1,0 +1,3 @@
+# Replicons excluded from conjugation analysis
+# NZ_OX281346.1: transfers via membrane vesicles, not conjugation
+NZ_OX281346.1

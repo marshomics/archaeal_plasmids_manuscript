@@ -1,0 +1,5 @@
+mechanism	pattern
+VirD2 relaxase	(?i)VirD2|relaxase
+HerA-family helicase	(?i)HerA|helicase.*herA
+P4-family primase	(?i)P4.*prim|prim.*P4|Phage plasmid primase
+Eukaryotic-type primase	(?i)[Ee]ukaryotic.*prim|DNA primase.*catalytic|DNA primase.*large subunit|COG1467|COG2219
