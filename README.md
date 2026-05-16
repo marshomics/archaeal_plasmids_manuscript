@@ -1,5 +1,9 @@
 # Archaeal plasmid analyses
 
+<p align="center">
+  <img src="graphical_abstract.jpg" alt="Graphical Abstract" width="100%">
+</p>
+
 Reproducible analysis pipelines for the six Results subsections of an archaeal-plasmid manuscript. Each subdirectory is a self-contained pipeline that reads input tables from its own `data/` folder, runs the cited statistical tests, and writes tables to `outputs/`. Plot rendering is out of scope.
 
 ## Pipelines
