@@ -1,0 +1,2 @@
+n_families,n_phyla,chi2,df,p_asym,p_perm,n_perm,pct_expected_lt5,min_marginal
+16,24,3279.81,345,0.0,0.0001,9999,52.3,5
