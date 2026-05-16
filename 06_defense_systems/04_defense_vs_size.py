@@ -1,52 +1,92 @@
 #!/usr/bin/env python3
-"""Defence count vs plasmid size (Spearman); density vs size on carriers."""
+"""Defence count vs plasmid size with a size-permutation null for density.
+
+UPDATE vs streamlined_defense_systems/04_defense_vs_size.py
+-----------------------------------------------------------
+Original reported ρ(density, size) = -0.734 with a parametric Spearman p.
+Because density = count / size, the two variables share the size term in
+the denominator and a negative correlation is partly arithmetic.
+
+This version keeps the count-vs-size Spearman as published, then for the
+density-vs-size correlation adds:
+  (a) a permutation null in which size labels are shuffled relative to
+      count (so the arithmetic dependence is broken but the marginal
+      distributions of count and size are preserved); the empirical p is
+      the fraction of permuted ρ at least as extreme as observed;
+  (b) the ratio of observed |ρ| to the 95th-percentile null |ρ|, so the
+      reader can see how much of the observed correlation exceeds what
+      shuffling alone produces.
+"""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "streamlined_defense_systems"))
+
 import numpy as np
 import pandas as pd
 from scipy.stats import spearmanr
 
-from common import load_defense_tables, MOB_FILE, OUT_DIR, header
+from common import load_defense_tables, MOB_FILE, header
 
-SIZE_BINS  = [0, 10, 50, 100, 200, 500, np.inf]
-SIZE_LABELS = ['<10', '10-50', '50-100', '100-200', '200-500', '>500']
+OUT_DIR = Path(__file__).resolve().parent / "outputs"
+OUT_DIR.mkdir(exist_ok=True)
+N_PERM = 5000
+SEED = 42
 
 
 def main():
-    header("DEFENCE × PLASMID SIZE")
+    header("DEFENCE × PLASMID SIZE (updated: permutation null for density)")
     type_df, *_ = load_defense_tables()
 
     mob = pd.read_csv(MOB_FILE, sep='\t')
     size_col = next((c for c in ('size', 'replicon_size', 'plasmid_size',
                                   'size_bp', 'length') if c in mob.columns), None)
-    if size_col is None:
-        raise RuntimeError("no size column in mobsuite table")
     sizes = mob[['sample_id', size_col]].rename(
         columns={'sample_id': 'replicon', size_col: 'size_bp'})
     df = type_df.merge(sizes, on='replicon', how='inner')
     df['size_kb'] = df['size_bp'] / 1000.0
 
-    rho, p = spearmanr(df['size_kb'], df['n_instances'])
-    print(f"Spearman (count vs size): ρ = {rho:.3f}, p = {p:.2e}, n = {len(df)}")
-
-    df['size_bin'] = pd.cut(df['size_kb'], bins=SIZE_BINS, labels=SIZE_LABELS,
-                            include_lowest=True)
-    bin_summary = df.groupby('size_bin').agg(
-        n=('n_instances', 'size'),
-        n_with_defense=('n_instances', lambda x: (x > 0).sum()),
-    ).reset_index()
-    bin_summary['pct_with_defense'] = (
-        100 * bin_summary['n_with_defense'] / bin_summary['n'])
-    print("\nCarriage by size bin:")
-    print(bin_summary.to_string(index=False))
+    rho_count, p_count = spearmanr(df['size_kb'], df['n_instances'])
+    print(f"Spearman (count vs size): ρ = {rho_count:.3f}, "
+          f"p = {p_count:.2e}, n = {len(df)}")
 
     with_def = df[df['n_instances'] > 0].copy()
     with_def['density_per_kb'] = with_def['n_instances'] / with_def['size_kb']
     rho_d, p_d = spearmanr(with_def['size_kb'], with_def['density_per_kb'])
-    print(f"\nSpearman (density vs size on carriers): "
-          f"ρ = {rho_d:.3f}, p = {p_d:.2e}, n = {len(with_def)}")
+    print(f"\nSpearman (density vs size on carriers):")
+    print(f"  Observed ρ = {rho_d:.3f}, parametric p = {p_d:.2e}, "
+          f"n = {len(with_def)}")
 
-    bin_summary.to_csv(OUT_DIR / 'carriage_by_size_bin.csv', index=False)
-    with_def[['replicon', 'size_kb', 'n_instances', 'density_per_kb']].to_csv(
-        OUT_DIR / 'density_per_plasmid.csv', index=False)
+    # Permutation null: shuffle size labels and recompute density and ρ.
+    rng = np.random.default_rng(SEED)
+    counts = with_def['n_instances'].values.astype(float)
+    sizes_arr = with_def['size_kb'].values.astype(float)
+    null_rhos = np.empty(N_PERM)
+    for i in range(N_PERM):
+        s_perm = rng.permutation(sizes_arr)
+        d_perm = counts / s_perm
+        null_rhos[i] = spearmanr(s_perm, d_perm)[0]
+    null_p = (np.sum(np.abs(null_rhos) >= np.abs(rho_d)) + 1) / (N_PERM + 1)
+    pct95 = np.percentile(np.abs(null_rhos), 95)
+    print(f"  Permutation null (N = {N_PERM}, size labels shuffled):")
+    print(f"    null ρ mean ± sd:   {null_rhos.mean():.3f} ± "
+          f"{null_rhos.std():.3f}")
+    print(f"    null ρ 95th |abs|:  {pct95:.3f}")
+    print(f"    empirical p:        {null_p:.4f}")
+    print(f"    |observed| / |null 95th|: {abs(rho_d)/pct95:.2f}x")
+    if abs(rho_d) > pct95:
+        print(f"  → Observed correlation exceeds the arithmetic null; "
+              f"reports as ρ = {rho_d:.3f} (permutation p = {null_p:.3g}).")
+    else:
+        print(f"  → Observed correlation lies within the arithmetic null; "
+              f"the manuscript's density-vs-size negative trend is largely "
+              f"explained by shared denominator.")
+
+    pd.DataFrame({
+        'metric': ['count_vs_size', 'density_vs_size'],
+        'spearman_rho': [rho_count, rho_d],
+        'parametric_p': [p_count, p_d],
+        'permutation_p': [np.nan, null_p],
+    }).to_csv(OUT_DIR / 'defense_vs_size_perm.csv', index=False)
 
 
 if __name__ == "__main__":

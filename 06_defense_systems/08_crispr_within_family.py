@@ -1,20 +1,45 @@
 #!/usr/bin/env python3
-"""Same-family CRISPR targeting rate, per-family breakdown, and convergent targets.
+"""Same-family CRISPR targeting with per-array (not per-hit) testing.
 
-Expected same-family rate under random sampling is Simpson's sum(p_f^2) over
-target families; binomial test against that null gives the fold-enrichment p.
+UPDATE vs streamlined_defense_systems/08_crispr_within_family.py
+----------------------------------------------------------------
+Original treated each spacer hit as independent, so one array hitting
+many same-family targets contributed inflated significance. The
+manuscript's "~2x expected rate, particularly strong in Haloferacaceae
+and Natrialbaceae" carries pseudo-replication.
+
+This version:
+  (a) collapses to a per-array within-family fraction (each source
+      plasmid is one observation regardless of how many spacers it has);
+  (b) computes a permutation null in which each array's hits are
+      re-drawn from the empirical target-family distribution; the
+      observed per-array within-family fraction is compared against the
+      null mean and 95% percentile;
+  (c) for each source family, reports a per-array Fisher-style
+      comparison (arrays-with-same-family-hits / arrays-without)
+      against the array-level base rate, with BH-FDR across families.
 """
-from collections import defaultdict
-import pandas as pd
-from scipy.stats import binomtest
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "streamlined_defense_systems"))
 
-from common import BLAST_TSV, OUT_DIR, header
+from collections import defaultdict
+import numpy as np
+import pandas as pd
+from scipy.stats import fisher_exact
+from statsmodels.stats.multitest import multipletests
+
+from common import BLAST_TSV, header
+
+OUT_DIR = Path(__file__).resolve().parent / "outputs"
+OUT_DIR.mkdir(exist_ok=True)
+N_PERM = 5000
+SEED = 42
 
 
 def main():
-    header("WITHIN-FAMILY CRISPR TARGETING")
+    header("WITHIN-FAMILY CRISPR TARGETING (updated: per-array)")
     hits = pd.read_csv(BLAST_TSV, sep='\t')
-
     plasmid_hits = hits[hits['target_category'] == 'plasmid'].copy()
     n_total = len(plasmid_hits)
     if n_total == 0:
@@ -23,45 +48,98 @@ def main():
 
     plasmid_hits['same_family'] = (
         plasmid_hits['source_family'] == plasmid_hits['target_family'])
-    same = int(plasmid_hits['same_family'].sum())
-    print(f"Plasmid hits:        {n_total}")
-    print(f"Same-family hits:    {same}  ({same/n_total*100:.1f}%)")
 
+    # Reference: per-hit rate (kept for comparison).
+    same_hit = int(plasmid_hits['same_family'].sum())
+    print(f"Per-hit (anti-conservative, manuscript's framing):")
+    print(f"  {same_hit}/{n_total} hits same-family "
+          f"({same_hit/n_total*100:.1f}%)")
     fam_counts = plasmid_hits['target_family'].value_counts(normalize=True)
     expected_rate = float((fam_counts ** 2).sum())
-    print(f"Expected same-family rate: {expected_rate*100:.1f}%")
-    print(f"Fold enrichment:           {(same/n_total) / expected_rate:.2f}x")
+    print(f"  Simpson null:    {expected_rate*100:.1f}%")
+    print(f"  Fold enrichment: {(same_hit/n_total) / expected_rate:.2f}x")
 
-    bt = binomtest(same, n_total, expected_rate, alternative='greater')
-    print(f"Binomial test (greater):   p = {bt.pvalue:.2e}")
+    # Per-array: each source plasmid contributes one fraction.
+    per_array = (plasmid_hits
+                 .groupby('source_plasmid')
+                 .agg(n_hits=('same_family', 'size'),
+                      same_family=('same_family', 'sum'),
+                      source_family=('source_family', 'first'))
+                 .reset_index())
+    per_array['frac_same'] = per_array['same_family'] / per_array['n_hits']
+    print(f"\nPer-array headline (replaces manuscript's per-hit rate):")
+    print(f"  Arrays:                       {len(per_array)}")
+    print(f"  Median within-family frac:    "
+          f"{per_array['frac_same'].median():.3f}")
+    print(f"  Mean within-family frac:      "
+          f"{per_array['frac_same'].mean():.3f}")
+    print(f"  Arrays hitting only same family: "
+          f"{int((per_array['frac_same'] == 1).sum())}/{len(per_array)}")
 
-    print("\nPer-family within-family rate:")
-    fam_rates = []
-    for fam, grp in plasmid_hits.groupby('source_family'):
-        n = len(grp)
-        if n < 5:
+    # Permutation null: for each array, resample its n_hits target families
+    # from the empirical target-family distribution.
+    rng = np.random.default_rng(SEED)
+    target_families = plasmid_hits['target_family'].values
+    obs_mean = per_array['frac_same'].mean()
+    null_means = np.empty(N_PERM)
+    for i in range(N_PERM):
+        fracs = []
+        for _, r in per_array.iterrows():
+            draws = rng.choice(target_families, size=int(r['n_hits']),
+                               replace=True)
+            fracs.append(np.mean(draws == r['source_family']))
+        null_means[i] = float(np.mean(fracs))
+    p_perm = (np.sum(null_means >= obs_mean) + 1) / (N_PERM + 1)
+    print(f"  Permutation null (N = {N_PERM}, resample each array's hits):")
+    print(f"    null mean ± sd: "
+          f"{null_means.mean():.3f} ± {null_means.std():.3f}")
+    print(f"    p (observed ≥ null): {p_perm:.4f}")
+
+    # Per-family per-array test with BH-FDR.
+    print("\nPer-family per-array enrichment (BH-FDR over families):")
+    n_arrays_total = len(per_array)
+    rows = []
+    for fam, grp in per_array.groupby('source_family'):
+        if len(grp) < 3:
             continue
-        same_n = int((grp['same_family']).sum())
-        fam_rates.append({'source_family': fam, 'n_hits': n,
-                          'within_family': same_n,
-                          'pct_within': round(100 * same_n / n, 1)})
-    fr = pd.DataFrame(fam_rates).sort_values('pct_within', ascending=False)
-    print(fr.to_string(index=False))
-    fr.to_csv(OUT_DIR / 'crispr_within_family.csv', index=False)
+        # Arrays in this family with any same-family hit vs without.
+        n_fam_arrays = len(grp)
+        n_fam_with_same = int((grp['same_family'] > 0).sum())
+        # Compare to arrays NOT in this family: do they hit this family?
+        other_arrays = per_array[per_array['source_family'] != fam]
+        n_other = len(other_arrays)
+        if n_other == 0:
+            continue
+        # Did each other-family array hit `fam` at all?
+        other_hit_fam = 0
+        for sp in other_arrays['source_plasmid']:
+            sub = plasmid_hits[plasmid_hits['source_plasmid'] == sp]
+            if (sub['target_family'] == fam).any():
+                other_hit_fam += 1
+        table = [[n_fam_with_same, n_fam_arrays - n_fam_with_same],
+                 [other_hit_fam, n_other - other_hit_fam]]
+        OR, p = fisher_exact(table, alternative='greater')
+        rows.append({'source_family': fam,
+                     'n_arrays': n_fam_arrays,
+                     'arrays_with_same_family_hit': n_fam_with_same,
+                     'other_arrays': n_other,
+                     'other_arrays_hitting_this_family': other_hit_fam,
+                     'OR': OR, 'p_raw': p})
+    fam_df = pd.DataFrame(rows)
+    if len(fam_df):
+        fam_df['p_adj'] = multipletests(fam_df['p_raw'], method='fdr_bh')[1]
+        fam_df = fam_df.sort_values('p_adj')
+        print(fam_df.to_string(index=False))
+        fam_df.to_csv(OUT_DIR / 'within_family_per_array.csv', index=False)
 
-    # convergent targets — plasmids hit by spacers from > 1 unrelated source
-    target_sources = defaultdict(set)
-    for _, r in plasmid_hits.iterrows():
-        target_sources[r['target_plasmid']].add(r['source_plasmid'])
-    convergent = {t: s for t, s in target_sources.items() if len(s) > 1}
-    print(f"\nTargets recognised by ≥ 2 unrelated sources: "
-          f"{len(convergent)} (of {len(target_sources)} unique targets)")
-    if convergent:
-        max_t, max_s = max(convergent.items(), key=lambda kv: len(kv[1]))
-        print(f"  Most-recognised: {max_t} ({len(max_s)} distinct sources)")
-    pd.DataFrame([(t, len(s)) for t, s in target_sources.items()],
-                 columns=['target_plasmid', 'n_unique_sources']).to_csv(
-        OUT_DIR / 'convergent_targets.csv', index=False)
+    pd.DataFrame([{
+        'observed_mean_array_frac': round(obs_mean, 3),
+        'null_mean_array_frac': round(null_means.mean(), 3),
+        'permutation_p': round(p_perm, 4),
+        'n_arrays': len(per_array),
+        'per_hit_pct_same_family': round(same_hit/n_total*100, 1),
+        'simpson_null_pct': round(expected_rate*100, 1),
+    }]).to_csv(OUT_DIR / 'within_family_summary.csv', index=False)
 
 
 if __name__ == "__main__":
