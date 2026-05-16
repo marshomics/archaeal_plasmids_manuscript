@@ -1,0 +1,6 @@
+phylum,n_plasmids,weighted_mean_pct_unknown,CI_lower,CI_upper
+Halobacteriota,407,56.4,54.5,58.5
+Methanobacteriota,21,69.6,58.6,79.6
+Methanobacteriota_B,11,78.0,65.5,90.5
+Thermoplasmatota,2,76.5,62.5,90.5
+Thermoproteota,23,87.5,83.6,91.4

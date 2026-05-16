@@ -1,0 +1,96 @@
+group,COG,description,delta,p_raw,n_plasmids,p_adj,significant
+Halobacteriota,C,Energy production and conversion,0.1833989766769111,0.21978021978021978,407,0.4662728575772054,False
+Halobacteriota,D,"Cell cycle control, cell division",-0.1628820162298766,0.13186813186813187,407,0.34798534798534797,False
+Halobacteriota,E,Amino acid transport and metabolism,0.43234572475145505,0.002997002997002997,407,0.021901175747329592,True
+Halobacteriota,F,Nucleotide transport and metabolism,-0.5885257108498751,0.000999000999000999,407,0.011863136863136864,True
+Halobacteriota,G,Carbohydrate transport and metabolism,0.13862869211079243,0.36163836163836166,407,0.5587154780703167,False
+Halobacteriota,H,Coenzyme transport and metabolism,-0.12893631534755245,0.24175824175824176,407,0.4886602758943185,False
+Halobacteriota,I,Lipid transport and metabolism,-0.13722071571440614,0.34865134865134867,407,0.5587154780703167,False
+Halobacteriota,J,"Translation, ribosomal structure and biogenesis",-0.562778988444897,0.000999000999000999,407,0.011863136863136864,True
+Halobacteriota,K,Transcription,0.6984602917606428,0.000999000999000999,407,0.011863136863136864,True
+Halobacteriota,L,"Replication, recombination and repair",0.5389991240697987,0.001998001998001998,407,0.018981018981018984,True
+Halobacteriota,M,Cell wall/membrane/envelope biogenesis,0.16230877090851648,0.3156843156843157,407,0.5355358926787499,False
+Halobacteriota,N,Cell motility,-0.9514827031070965,0.000999000999000999,407,0.011863136863136864,True
+Halobacteriota,O,"Post-translational modification, chaperones",0.13027084792895627,0.25374625374625376,407,0.5022061272061272,False
+Halobacteriota,P,Inorganic ion transport and metabolism,0.6303569378126406,0.000999000999000999,407,0.011863136863136864,True
+Halobacteriota,Q,Secondary metabolites,-0.19097463849059898,0.06393606393606394,407,0.21692593121164552,False
+Halobacteriota,S,Function unknown,0.3521133917544783,0.002997002997002997,407,0.021901175747329592,True
+Halobacteriota,T,Signal transduction mechanisms,0.163516976236796,0.22377622377622378,407,0.4662728575772054,False
+Halobacteriota,U,"Intracellular trafficking, secretion, vesicular transport",-0.6265648911606008,0.001998001998001998,407,0.018981018981018984,True
+Halobacteriota,V,Defense mechanisms,-0.08103375466608365,0.5734265734265734,407,0.7566045066045066,False
+Methanobacteriota,C,Energy production and conversion,-0.09544824232250311,0.6983016983016983,21,0.8146020646020646,False
+Methanobacteriota,D,"Cell cycle control, cell division",0.20452155217611592,0.1998001998001998,21,0.45192902335759483,False
+Methanobacteriota,E,Amino acid transport and metabolism,-0.4832160312620243,0.03596403596403597,21,0.14235764235764237,False
+Methanobacteriota,F,Nucleotide transport and metabolism,0.5381534321057965,0.003996003996003996,21,0.02711574140145569,True
+Methanobacteriota,G,Carbohydrate transport and metabolism,-0.11751119284738004,0.6093906093906094,21,0.7629383603409579,False
+Methanobacteriota,H,Coenzyme transport and metabolism,0.11680244654215027,0.4515484515484515,21,0.6499561045015589,False
+Methanobacteriota,I,Lipid transport and metabolism,0.0946817750092473,0.6733266733266733,21,0.8096966324814425,False
+Methanobacteriota,J,"Translation, ribosomal structure and biogenesis",0.606057372623549,0.004995004995004995,21,0.02965784215784216,True
+Methanobacteriota,K,Transcription,-0.8699526552409773,0.000999000999000999,21,0.011863136863136864,True
+Methanobacteriota,L,"Replication, recombination and repair",-0.22141087841958518,0.4125874125874126,21,0.6124344405594406,False
+Methanobacteriota,M,Cell wall/membrane/envelope biogenesis,-0.02081915978416117,0.935064935064935,21,0.9551738583996647,False
+Methanobacteriota,N,Cell motility,0.9214053636832421,0.000999000999000999,21,0.011863136863136864,True
+Methanobacteriota,O,"Post-translational modification, chaperones",-0.2510284468042596,0.16683316683316685,21,0.40638848331156024,False
+Methanobacteriota,P,Inorganic ion transport and metabolism,-0.5207243191226163,0.03396603396603397,21,0.14235764235764237,False
+Methanobacteriota,Q,Secondary metabolites,0.18380119937497152,0.2787212787212787,21,0.5121293800539084,False
+Methanobacteriota,S,Function unknown,-0.674417810663047,0.000999000999000999,21,0.011863136863136864,True
+Methanobacteriota,T,Signal transduction mechanisms,-0.12211498619687672,0.5684315684315684,21,0.7566045066045066,False
+Methanobacteriota,U,"Intracellular trafficking, secretion, vesicular transport",0.6217808975725084,0.024975024975024976,21,0.11298225583939871,False
+Methanobacteriota,V,Defense mechanisms,0.08943968357584992,0.6833166833166833,21,0.8114385614385614,False
+Methanobacteriota_B,C,Energy production and conversion,0.0064575970595778355,0.987012987012987,11,0.987012987012987,False
+Methanobacteriota_B,D,"Cell cycle control, cell division",0.039962381389399504,0.8541458541458542,11,0.9015984015984017,False
+Methanobacteriota_B,E,Amino acid transport and metabolism,-0.18664437822241556,0.5414585414585414,11,0.7454863976603107,False
+Methanobacteriota_B,F,Nucleotide transport and metabolism,0.436055438785393,0.07592407592407592,11,0.23133116883116883,False
+Methanobacteriota_B,G,Carbohydrate transport and metabolism,-0.27265669026259975,0.3776223776223776,11,0.5694305694305695,False
+Methanobacteriota_B,H,Coenzyme transport and metabolism,-0.047592273480550895,0.8231768231768232,11,0.9010529700184874,False
+Methanobacteriota_B,I,Lipid transport and metabolism,0.05428948320840138,0.8531468531468531,11,0.9015984015984017,False
+Methanobacteriota_B,J,"Translation, ribosomal structure and biogenesis",0.3623639162896104,0.1848151848151848,11,0.43893606393606394,False
+Methanobacteriota_B,K,Transcription,-0.2864765395058122,0.32667332667332666,11,0.5444555444555444,False
+Methanobacteriota_B,L,"Replication, recombination and repair",-0.9110887758624113,0.008991008991008992,11,0.05024387377328554,False
+Methanobacteriota_B,M,Cell wall/membrane/envelope biogenesis,-0.45066578438052185,0.1928071928071928,11,0.44674837357764186,False
+Methanobacteriota_B,N,Cell motility,0.6842069209213648,0.058941058941058944,11,0.2073852073852074,False
+Methanobacteriota_B,O,"Post-translational modification, chaperones",0.05057036770375349,0.8251748251748252,11,0.9010529700184874,False
+Methanobacteriota_B,P,Inorganic ion transport and metabolism,-0.5046336802679761,0.14385614385614387,11,0.3693603693603694,False
+Methanobacteriota_B,Q,Secondary metabolites,0.21622681956231365,0.34765234765234765,11,0.5587154780703167,False
+Methanobacteriota_B,S,Function unknown,-0.19032430946621703,0.3596403596403596,11,0.5587154780703167,False
+Methanobacteriota_B,T,Signal transduction mechanisms,0.10701375942521835,0.7202797202797203,11,0.8146020646020646,False
+Methanobacteriota_B,U,"Intracellular trafficking, secretion, vesicular transport",0.43745281764071436,0.22577422577422576,11,0.4662728575772054,False
+Methanobacteriota_B,V,Defense mechanisms,0.45548292946275915,0.13186813186813187,11,0.34798534798534797,False
+Thermoplasmatota,C,Energy production and conversion,-0.3453674629410687,0.5964035964035964,2,0.7629383603409579,False
+Thermoplasmatota,D,"Cell cycle control, cell division",-0.02422161955379326,0.951048951048951,2,0.9611664930813867,False
+Thermoplasmatota,E,Amino acid transport and metabolism,-0.4669278514987528,0.5604395604395604,2,0.7566045066045066,False
+Thermoplasmatota,F,Nucleotide transport and metabolism,0.4572051398303286,0.3646353646353646,2,0.5587154780703167,False
+Thermoplasmatota,G,Carbohydrate transport and metabolism,-0.10972860892617037,0.8431568431568431,2,0.9015984015984017,False
+Thermoplasmatota,H,Coenzyme transport and metabolism,0.6644718261055885,0.14985014985014986,2,0.3746253746253746,False
+Thermoplasmatota,I,Lipid transport and metabolism,0.08759733570483347,0.8721278721278721,2,0.910463163210416,False
+Thermoplasmatota,J,"Translation, ribosomal structure and biogenesis",0.3063885275604219,0.5914085914085914,2,0.7629383603409579,False
+Thermoplasmatota,K,Transcription,-1.4339427889941718,0.012987012987012988,2,0.06493506493506493,False
+Thermoplasmatota,L,"Replication, recombination and repair",-0.2780691393568777,0.7162837162837162,2,0.8146020646020646,False
+Thermoplasmatota,M,Cell wall/membrane/envelope biogenesis,0.31397102799547794,0.6283716283716284,2,0.765324419170573,False
+Thermoplasmatota,N,Cell motility,0.85639761561823,0.3076923076923077,2,0.5349196258287168,False
+Thermoplasmatota,O,"Post-translational modification, chaperones",0.8787161988478743,0.07792207792207792,2,0.23133116883116883,False
+Thermoplasmatota,P,Inorganic ion transport and metabolism,-0.7054069212119797,0.3096903096903097,2,0.5349196258287168,False
+Thermoplasmatota,Q,Secondary metabolites,0.17047272396850055,0.7192807192807192,2,0.8146020646020646,False
+Thermoplasmatota,S,Function unknown,-0.47320905313655004,0.28471528471528473,2,0.5121293800539084,False
+Thermoplasmatota,T,Signal transduction mechanisms,-0.28218245743351056,0.6183816183816184,2,0.7629383603409579,False
+Thermoplasmatota,U,"Intracellular trafficking, secretion, vesicular transport",0.5777659464961465,0.47952047952047955,2,0.6799170978275456,False
+Thermoplasmatota,V,Defense mechanisms,-0.19393043907452615,0.7422577422577422,2,0.8295821825233589,False
+Thermoproteota,C,Energy production and conversion,-0.3840966898982511,0.08091908091908091,23,0.23294886931250564,False
+Thermoproteota,D,"Cell cycle control, cell division",0.1794820581747526,0.26373626373626374,23,0.5113254092845929,False
+Thermoproteota,E,Amino acid transport and metabolism,-0.34548345035564343,0.1068931068931069,23,0.29867191631897516,False
+Thermoproteota,F,Nucleotide transport and metabolism,0.5543245441662086,0.004995004995004995,23,0.02965784215784216,True
+Thermoproteota,G,Carbohydrate transport and metabolism,0.02346576730156344,0.9150849150849151,23,0.9449246405768145,False
+Thermoproteota,H,Coenzyme transport and metabolism,0.09999331852389343,0.5304695304695305,23,0.7410971381559617,False
+Thermoproteota,I,Lipid transport and metabolism,0.23716777794239002,0.26973026973026976,23,0.5121293800539084,False
+Thermoproteota,J,"Translation, ribosomal structure and biogenesis",0.46016794042448095,0.013986013986013986,23,0.06643356643356643,False
+Thermoproteota,K,Transcription,-0.21330459258636658,0.2857142857142857,23,0.5121293800539084,False
+Thermoproteota,L,"Replication, recombination and repair",-0.5216886120555473,0.052947052947052944,23,0.2011988011988012,False
+Thermoproteota,M,Cell wall/membrane/envelope biogenesis,-0.17995094855683677,0.44655344655344653,23,0.6499561045015589,False
+Thermoproteota,N,Cell motility,0.7907494316527288,0.002997002997002997,23,0.021901175747329592,True
+Thermoproteota,O,"Post-translational modification, chaperones",-0.32367750219239355,0.06693306693306693,23,0.21926349512556406,False
+Thermoproteota,P,Inorganic ion transport and metabolism,-0.5918072263094369,0.01098901098901099,23,0.057997557997558,False
+Thermoproteota,Q,Secondary metabolites,0.0822612211987323,0.6163836163836164,23,0.7629383603409579,False
+Thermoproteota,S,Function unknown,0.28540434744456267,0.07792207792207792,23,0.23133116883116883,False
+Thermoproteota,T,Signal transduction mechanisms,-0.3852839332757134,0.055944055944055944,23,0.20441097364174285,False
+Thermoproteota,U,"Intracellular trafficking, secretion, vesicular transport",0.5029522470989982,0.03596403596403597,23,0.14235764235764237,False
+Thermoproteota,V,Defense mechanisms,-0.2706756986981226,0.21878121878121878,23,0.4662728575772054,False
