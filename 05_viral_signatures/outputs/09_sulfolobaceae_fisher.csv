@@ -1,0 +1,2 @@
+test,OR,CI_low,CI_high,p_value,conj_categories,nonconj_categories
+fisher_phage_rep_vs_conj_in_sulfolobaceae,0.0,0.0008040700441567523,0.4857413591282972,0.0024509803921568627,Integrase,Integrase; Phage replication

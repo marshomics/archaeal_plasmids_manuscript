@@ -10,10 +10,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from itertools import combinations
+import pandas as pd
 import scikit_posthocs as sp
 from scipy import stats
 
-from common import load_data, header
+from common import load_data, header, OUT_DIR
 
 
 def main():
@@ -48,6 +49,7 @@ def main():
                               .map(complexity).fillna(0).astype(int))
     subtypes = sorted(clusters['hdbscan_cluster'].unique())
 
+    subtype_rows = []
     for st in subtypes:
         sub = clusters[clusters['hdbscan_cluster'] == st]
         c = sub['complexity']
@@ -55,6 +57,15 @@ def main():
         print(f"  ST{st}: n = {len(sub)}, mean = {c.mean():.2f}, "
               f"median = {c.median():.1f}, range = {c.min()}-{c.max()}, "
               f"zero_viral = {zero}")
+        subtype_rows.append({
+            'subtype': f"ST{st}", 'n': int(len(sub)),
+            'mean_complexity': float(c.mean()),
+            'median_complexity': float(c.median()),
+            'min_complexity': int(c.min()), 'max_complexity': int(c.max()),
+            'n_zero_viral': zero,
+        })
+    pd.DataFrame(subtype_rows).to_csv(
+        OUT_DIR / "08_subtype_complexity.csv", index=False)
 
     # ── Kruskal-Wallis omnibus ─────────────────────────────────────
     groups = [clusters.loc[clusters['hdbscan_cluster'] == st,
@@ -70,14 +81,26 @@ def main():
                            group_col='hdbscan_cluster', p_adjust='holm')
     print("\nDunn post-hoc (Holm):")
     labels = [f"ST{s}" for s in subtypes]
+    dunn_rows = []
     for s1, s2 in combinations(labels, 2):
         adj = dunn.loc[s1, s2]
         marker = "*" if adj < 0.05 else ""
         print(f"  {s1} vs {s2}: p_adj = {adj:.2e} {marker}")
+        dunn_rows.append({'subtype_a': s1, 'subtype_b': s2,
+                          'p_holm': float(adj),
+                          'significant': bool(adj < 0.05)})
+    pd.DataFrame(dunn_rows).to_csv(
+        OUT_DIR / "08_subtype_dunn_posthoc.csv", index=False)
+
+    pd.DataFrame([{'test': 'kruskal_wallis_complexity_by_subtype',
+                   'H': float(H), 'p_value': float(p),
+                   'k_groups': len(subtypes)}]).to_csv(
+        OUT_DIR / "08_subtype_kruskal.csv", index=False)
 
     # ── Category prevalence per subtype ────────────────────────────
     all_cats = sorted(df['new_category'].unique())
     print("\nCategory prevalence per subtype:")
+    cat_rows = []
     for st in subtypes:
         sub_ids = set(clusters.loc[clusters['hdbscan_cluster'] == st,
                                    'short_label'])
@@ -88,13 +111,25 @@ def main():
             k = sub_viral[sub_viral['new_category'] == cat]['replicon'].nunique()
             if k > 0 or cat in ('Capsid & head', 'DNA packaging'):
                 print(f"    {cat:<24} {k:>3} ({k/n*100:.1f}%)")
+            cat_rows.append({
+                'subtype': f"ST{st}", 'n_plasmids': int(n),
+                'category': cat, 'n_with_category': int(k),
+                'pct_with_category': k / n * 100 if n else 0.0,
+            })
+    pd.DataFrame(cat_rows).to_csv(
+        OUT_DIR / "08_subtype_category_prevalence.csv", index=False)
 
     # ── Capsid / packaging exclusion ──────────────────────────────
     print("\nCapsid / packaging on conjugative plasmids:")
     conj_viral = df[df['replicon'].isin(conj_list)]
+    excl_rows = []
     for cat in ('Capsid & head', 'DNA packaging'):
         k = conj_viral[conj_viral['new_category'] == cat]['replicon'].nunique()
         print(f"  {cat}: {k}/{len(conj_list)}")
+        excl_rows.append({'category': cat, 'n_conj_with': int(k),
+                          'n_conj_total': int(len(conj_list))})
+    pd.DataFrame(excl_rows).to_csv(
+        OUT_DIR / "08_conj_capsid_packaging.csv", index=False)
 
 
 if __name__ == "__main__":

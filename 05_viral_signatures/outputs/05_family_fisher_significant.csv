@@ -1,0 +1,3 @@
+family,category,OR,p,plasmids_with,plasmids_total,analysis,p_adj,significant,direction
+Natrialbaceae,Phage replication,2.8459691252144084,0.0001358721833404,34,89,all_families,0.0085599475504479,True,enriched
+Natrialbaceae,Phage replication,2.859090909090909,0.0001339692606523,34,89,halobacteriota_only,0.0072343400752278,True,enriched

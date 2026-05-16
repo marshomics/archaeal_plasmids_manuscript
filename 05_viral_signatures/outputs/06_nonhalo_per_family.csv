@@ -1,0 +1,11 @@
+family,n_plasmids,n_viral,pct_viral,categories
+f__Methanobacteriaceae,1,1,100.0,Integrase
+f__Methanocaldococcaceae,7,2,28.57142857142857,Integrase
+f__Methanococcaceae,4,3,75.0,Integrase
+f__Methanothermobacteraceae,8,0,0.0,none
+f__Methanothermobacteraceae_A,1,0,0.0,none
+f__Sulfolobaceae,21,18,85.71428571428571,"Integrase, Phage replication"
+f__Thermococcaceae,11,2,18.181818181818183,Integrase
+f__Thermofilaceae,1,1,100.0,Integrase
+f__Thermoplasmataceae,2,0,0.0,none
+f__Thermoproteaceae,1,0,0.0,none

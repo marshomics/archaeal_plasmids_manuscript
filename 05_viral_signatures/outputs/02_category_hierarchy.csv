@@ -1,0 +1,10 @@
+category,n_plasmids,pct_plasmids,n_proteins
+Capsid & head,7,1.8134715025906734,10
+DNA packaging,12,3.1088082901554404,20
+Integrase,360,93.26424870466322,681
+Lysis & membrane,81,20.984455958549223,114
+Metabolic enzymes,79,20.466321243523318,137
+Osmolyte transport,60,15.544041450777202,103
+Phage replication,87,22.53886010362694,102
+Prophage maintenance,46,11.917098445595855,54
+Tail & baseplate,14,3.6269430051813467,31

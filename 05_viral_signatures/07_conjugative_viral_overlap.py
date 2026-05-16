@@ -8,12 +8,19 @@ Run globally and within Halobacteriota.
 import pandas as pd
 from scipy import stats
 
-from common import load_data, header, fisher_exact_with_ci
+from common import load_data, header, fisher_exact_with_ci, OUT_DIR
 
 
 def _summarise(comp, label):
     print(f"  {label}: n = {len(comp)}, mean = {comp.mean():.2f}, "
           f"median = {comp.median():.1f}, range = {comp.min()}-{comp.max()}")
+    return {
+        'group': label, 'n': int(len(comp)),
+        'mean_complexity': float(comp.mean()) if len(comp) else 0.0,
+        'median_complexity': float(comp.median()) if len(comp) else 0.0,
+        'min_complexity': int(comp.min()) if len(comp) else 0,
+        'max_complexity': int(comp.max()) if len(comp) else 0,
+    }
 
 
 def main():
@@ -28,8 +35,10 @@ def main():
     print("\n>>> Global")
     cc = cs.loc[cs['conjugative'], 'complexity']
     nc = cs.loc[~cs['conjugative'], 'complexity']
-    _summarise(cc, "Conjugative")
-    _summarise(nc, "Non-conjugative")
+    grp_rows = [
+        {'scope': 'global', **_summarise(cc, "Conjugative")},
+        {'scope': 'global', **_summarise(nc, "Non-conjugative")},
+    ]
 
     cc_any = (cc > 0).sum()
     nc_any = (nc > 0).sum()
@@ -51,8 +60,10 @@ def main():
     halo_cs = cs[cs.index.isin(halo_ids)]
     cc_h = halo_cs.loc[halo_cs['conjugative'], 'complexity']
     nc_h = halo_cs.loc[~halo_cs['conjugative'], 'complexity']
-    _summarise(cc_h, "Conjugative")
-    _summarise(nc_h, "Non-conjugative")
+    grp_rows += [
+        {'scope': 'halobacteriota', **_summarise(cc_h, "Conjugative")},
+        {'scope': 'halobacteriota', **_summarise(nc_h, "Non-conjugative")},
+    ]
 
     cc_h_any = (cc_h > 0).sum()
     nc_h_any = (nc_h > 0).sum()
@@ -68,6 +79,30 @@ def main():
     U_h, p_mw_h = stats.mannwhitneyu(cc_hv, nc_hv, alternative='two-sided')
     print(f"\nMann-Whitney (Halo, viral-carrying): "
           f"U = {U_h:.0f}, p = {p_mw_h:.2f}")
+
+    pd.DataFrame(grp_rows).to_csv(
+        OUT_DIR / "07_conj_complexity_by_group.csv", index=False)
+
+    pd.DataFrame([
+        {'scope': 'global', 'test': 'fisher_viral_presence',
+         'conj_any': int(cc_any), 'conj_n': int(len(cc)),
+         'nonconj_any': int(nc_any), 'nonconj_n': int(len(nc)),
+         'OR': OR, 'CI_low': lo, 'CI_high': hi, 'p_value': p},
+        {'scope': 'global', 'test': 'mannwhitney_complexity_among_viral',
+         'conj_any': int(len(cc_v)), 'conj_n': int(len(cc_v)),
+         'nonconj_any': int(len(nc_v)), 'nonconj_n': int(len(nc_v)),
+         'OR': float('nan'), 'CI_low': float('nan'), 'CI_high': float('nan'),
+         'p_value': p_mw, 'U': U},
+        {'scope': 'halobacteriota', 'test': 'fisher_viral_presence',
+         'conj_any': int(cc_h_any), 'conj_n': int(len(cc_h)),
+         'nonconj_any': int(nc_h_any), 'nonconj_n': int(len(nc_h)),
+         'OR': OR_h, 'CI_low': lo_h, 'CI_high': hi_h, 'p_value': p_h},
+        {'scope': 'halobacteriota', 'test': 'mannwhitney_complexity_among_viral',
+         'conj_any': int(len(cc_hv)), 'conj_n': int(len(cc_hv)),
+         'nonconj_any': int(len(nc_hv)), 'nonconj_n': int(len(nc_hv)),
+         'OR': float('nan'), 'CI_low': float('nan'), 'CI_high': float('nan'),
+         'p_value': p_mw_h, 'U': U_h},
+    ]).to_csv(OUT_DIR / "07_conj_viral_tests.csv", index=False)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,6 @@
+subtype,n,mean_complexity,median_complexity,min_complexity,max_complexity,n_zero_viral
+ST1,70,1.9285714285714286,2.0,0,5,2
+ST2,16,2.6875,3.0,1,4,0
+ST3,11,1.0,1.0,1,1,0
+ST4,9,2.111111111111111,3.0,0,3,1
+ST5,13,1.0769230769230769,1.0,0,3,2

@@ -1,0 +1,11 @@
+comparison,OR,p_raw,p_holm,significant
+Halobacteriota vs Methanobacteriota,18.697916666666668,1.8703270649312606e-09,1.8703270649312606e-08,True
+Halobacteriota vs Methanobacteriota_B,33.65625,4.020310803086147e-07,3.6182797227775323e-06,True
+Methanobacteriota_B vs Thermoproteota,0.04678362573099415,0.0005460860651268295,0.004368688521014636,True
+Methanobacteriota vs Thermoproteota,0.08421052631578947,0.0006147392220150949,0.004368688521014636,True
+Halobacteriota vs Thermoplasmatota,inf,0.014681911884558222,0.08809147130734933,False
+Thermoplasmatota vs Thermoproteota,0.0,0.049999999999999996,0.24999999999999997,False
+Halobacteriota vs Thermoproteota,1.5745614035087718,0.5048429457534223,1.0,False
+Methanobacteriota vs Methanobacteriota_B,1.8,0.6807863438008044,1.0,False
+Methanobacteriota vs Thermoplasmatota,inf,1.0,1.0,False
+Methanobacteriota_B vs Thermoplasmatota,inf,1.0,1.0,False

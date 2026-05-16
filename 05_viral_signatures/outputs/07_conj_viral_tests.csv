@@ -1,0 +1,5 @@
+scope,test,conj_any,conj_n,nonconj_any,nonconj_n,OR,CI_low,CI_high,p_value,U
+global,fisher_viral_presence,118,121,268,343,11.007462686567164,3.190558528396998,28.407905810262278,6.168216335561039e-08,
+global,mannwhitney_complexity_among_viral,118,118,268,268,,,,0.35595651126175487,16686.0
+halobacteriota,fisher_viral_presence,107,110,252,297,6.369047619047619,1.8233084052328228,16.80044302629147,0.00021686477602592965,
+halobacteriota,mannwhitney_complexity_among_viral,107,107,252,252,,,,0.19961963725605958,14574.0

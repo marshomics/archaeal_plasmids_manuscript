@@ -1,0 +1,46 @@
+subtype,n_plasmids,category,n_with_category,pct_with_category
+ST1,70,Capsid & head,0,0.0
+ST1,70,DNA packaging,0,0.0
+ST1,70,Integrase,68,97.14285714285714
+ST1,70,Lysis & membrane,11,15.714285714285714
+ST1,70,Metabolic enzymes,12,17.142857142857142
+ST1,70,Osmolyte transport,8,11.428571428571429
+ST1,70,Phage replication,23,32.857142857142854
+ST1,70,Prophage maintenance,12,17.142857142857142
+ST1,70,Tail & baseplate,1,1.4285714285714286
+ST2,16,Capsid & head,0,0.0
+ST2,16,DNA packaging,0,0.0
+ST2,16,Integrase,15,93.75
+ST2,16,Lysis & membrane,3,18.75
+ST2,16,Metabolic enzymes,4,25.0
+ST2,16,Osmolyte transport,2,12.5
+ST2,16,Phage replication,16,100.0
+ST2,16,Prophage maintenance,3,18.75
+ST2,16,Tail & baseplate,0,0.0
+ST3,11,Capsid & head,0,0.0
+ST3,11,DNA packaging,0,0.0
+ST3,11,Integrase,11,100.0
+ST3,11,Lysis & membrane,0,0.0
+ST3,11,Metabolic enzymes,0,0.0
+ST3,11,Osmolyte transport,0,0.0
+ST3,11,Phage replication,0,0.0
+ST3,11,Prophage maintenance,0,0.0
+ST3,11,Tail & baseplate,0,0.0
+ST4,9,Capsid & head,0,0.0
+ST4,9,DNA packaging,0,0.0
+ST4,9,Integrase,8,88.88888888888889
+ST4,9,Lysis & membrane,3,33.33333333333333
+ST4,9,Metabolic enzymes,4,44.44444444444444
+ST4,9,Osmolyte transport,2,22.22222222222222
+ST4,9,Phage replication,0,0.0
+ST4,9,Prophage maintenance,1,11.11111111111111
+ST4,9,Tail & baseplate,1,11.11111111111111
+ST5,13,Capsid & head,0,0.0
+ST5,13,DNA packaging,0,0.0
+ST5,13,Integrase,11,84.61538461538461
+ST5,13,Lysis & membrane,2,15.384615384615385
+ST5,13,Metabolic enzymes,0,0.0
+ST5,13,Osmolyte transport,0,0.0
+ST5,13,Phage replication,0,0.0
+ST5,13,Prophage maintenance,1,7.6923076923076925
+ST5,13,Tail & baseplate,0,0.0

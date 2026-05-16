@@ -1,0 +1,5 @@
+scope,group,n,mean_complexity,median_complexity,min_complexity,max_complexity
+global,Conjugative,121,1.9173553719008265,2.0,0,5
+global,Non-conjugative,343,1.498542274052478,1.0,0,8
+halobacteriota,Conjugative,110,2.0090909090909093,2.0,0,5
+halobacteriota,Non-conjugative,297,1.6767676767676767,1.0,0,8

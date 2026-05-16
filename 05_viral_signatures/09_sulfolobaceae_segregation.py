@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Sulfolobaceae: phage-replication × conjugative-status Fisher with 95% CI."""
-from common import load_data, header, fisher_exact_with_ci
+import pandas as pd
+from common import load_data, header, fisher_exact_with_ci, OUT_DIR
 
 
 def main():
@@ -41,6 +42,25 @@ def main():
         sulfo_viral_df['replicon'].isin(sulfo_nonconj), 'new_category'].unique())
     print(f"\nConjugative carry:     {conj_cats}")
     print(f"Non-conjugative carry: {nonconj_cats}")
+
+    pd.DataFrame([
+        {'group': 'sulfolobaceae_total',      'n': len(sulfo_ids)},
+        {'group': 'sulfolobaceae_conj',       'n': len(sulfo_conj)},
+        {'group': 'sulfolobaceae_nonconj',    'n': len(sulfo_nonconj)},
+        {'group': 'sulfolobaceae_with_viral', 'n': len(sulfo_viral_ids)},
+    ]).to_csv(OUT_DIR / "09_sulfolobaceae_counts.csv", index=False)
+
+    pd.DataFrame([
+        {'row': 'Conjugative',     'phage_rep_pos': a, 'phage_rep_neg': b},
+        {'row': 'Non-conjugative', 'phage_rep_pos': c, 'phage_rep_neg': d},
+    ]).to_csv(OUT_DIR / "09_sulfolobaceae_contingency.csv", index=False)
+
+    pd.DataFrame([{
+        'test': 'fisher_phage_rep_vs_conj_in_sulfolobaceae',
+        'OR': OR, 'CI_low': lo, 'CI_high': hi, 'p_value': p,
+        'conj_categories': "; ".join(conj_cats),
+        'nonconj_categories': "; ".join(nonconj_cats),
+    }]).to_csv(OUT_DIR / "09_sulfolobaceae_fisher.csv", index=False)
 
 
 if __name__ == "__main__":

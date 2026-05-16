@@ -1,0 +1,118 @@
+family,category,OR,p,plasmids_with,plasmids_total,analysis,p_adj,significant
+Haloferacaceae,Capsid & head,2.2109375,0.3791262255325976,3,99,all_families,0.8744944231076631,False
+Haloferacaceae,DNA packaging,0.2560296846011132,0.3104858861802453,1,99,all_families,0.8659241164364161,False
+Haloferacaceae,Integrase,1.971698113207547,0.253209536188444,95,99,all_families,0.7976100389935986,False
+Haloferacaceae,Lysis & membrane,0.8618951612903226,0.6693666875067117,19,99,all_families,1.0,False
+Haloferacaceae,Metabolic enzymes,0.6854082998661312,0.2493974067895586,16,99,all_families,0.7976100389935986,False
+Haloferacaceae,Osmolyte transport,1.7120315581854044,0.0779972247140381,21,99,all_families,0.545980572998267,False
+Haloferacaceae,Phage replication,0.9015151515151516,0.7811912555183197,21,99,all_families,1.0,False
+Haloferacaceae,Prophage maintenance,1.8444070647603028,0.0721117710290493,17,99,all_families,0.545980572998267,False
+Haloferacaceae,Tail & baseplate,2.25,0.2072451989131299,6,99,all_families,0.7680263253839523,False
+Haloarculaceae,Capsid & head,1.2478260869565216,0.6795782474444045,2,94,all_families,1.0,False
+Haloarculaceae,DNA packaging,1.0366300366300367,1.0,3,94,all_families,1.0,False
+Haloarculaceae,Integrase,1.3793357933579335,0.6410461062492779,89,94,all_families,1.0,False
+Haloarculaceae,Lysis & membrane,0.6501726121979287,0.191536153650274,15,94,all_families,0.7680263253839523,False
+Haloarculaceae,Metabolic enzymes,0.8190196899874319,0.5592835236482252,17,94,all_families,1.0,False
+Haloarculaceae,Osmolyte transport,1.2784657203261856,0.4184118659109967,17,94,all_families,0.9089637087032,False
+Haloarculaceae,Phage replication,0.3766645529486366,0.0042332118335787,11,94,all_families,0.0690322340207794,False
+Haloarculaceae,Prophage maintenance,0.9731497418244406,1.0,11,94,all_families,1.0,False
+Haloarculaceae,Tail & baseplate,0.5072463768115942,0.5320973087388607,2,94,all_families,1.0,False
+Natrialbaceae,Capsid & head,1.342528735632184,0.6637935371952086,2,89,all_families,1.0,False
+Natrialbaceae,DNA packaging,2.4659863945578238,0.157598767839909,5,89,all_families,0.7091944552795906,False
+Natrialbaceae,Integrase,2.40632603406326,0.2259411257401632,86,89,all_families,0.7907939400905714,False
+Natrialbaceae,Lysis & membrane,2.27724358974359,0.0030189944590189,29,89,all_families,0.0690322340207794,False
+Natrialbaceae,Metabolic enzymes,1.2725659229208923,0.4539691831490471,21,89,all_families,0.953335284612999,False
+Natrialbaceae,Osmolyte transport,0.9098544232922732,0.8684617929554995,13,89,all_families,1.0,False
+Natrialbaceae,Phage replication,2.8459691252144084,0.0001358721833404,34,89,all_families,0.0085599475504479,True
+Natrialbaceae,Prophage maintenance,0.7905405405405406,0.7092269715746018,9,89,all_families,1.0,False
+Natrialbaceae,Tail & baseplate,1.3505882352941176,0.7460181785936346,4,89,all_families,1.0,False
+Halobacteriaceae,Capsid & head,0.0,1.0,0,35,all_families,1.0,False
+Halobacteriaceae,DNA packaging,2.066666666666667,0.2978826581953285,2,35,all_families,0.8659241164364161,False
+Halobacteriaceae,Integrase,0.7479674796747967,0.719366700428465,32,35,all_families,1.0,False
+Halobacteriaceae,Lysis & membrane,1.8398809523809525,0.1274550910803706,11,35,all_families,0.6691392281719456,False
+Halobacteriaceae,Metabolic enzymes,2.2115509409474368,0.0461634167864863,12,35,all_families,0.4154707510783772,False
+Halobacteriaceae,Osmolyte transport,0.6797235023041475,0.627601581818958,4,35,all_families,1.0,False
+Halobacteriaceae,Phage replication,1.2115384615384617,0.6719053324470472,9,35,all_families,1.0,False
+Halobacteriaceae,Prophage maintenance,0.9493087557603688,1.0,4,35,all_families,1.0,False
+Halobacteriaceae,Tail & baseplate,0.0,0.6259838383750851,0,35,all_families,1.0,False
+Sulfolobaceae,Capsid & head,0.0,1.0,0,18,all_families,1.0,False
+Sulfolobaceae,DNA packaging,0.0,1.0,0,18,all_families,1.0,False
+Sulfolobaceae,Integrase,0.1573487031700288,0.0043829989854463,13,18,all_families,0.0690322340207794,False
+Sulfolobaceae,Lysis & membrane,0.0,0.0177927085835537,0,18,all_families,0.2241881281527768,False
+Sulfolobaceae,Metabolic enzymes,0.0,0.0308291229564938,0,18,all_families,0.3237057910431856,False
+Sulfolobaceae,Osmolyte transport,0.0,0.0889877196826184,0,18,all_families,0.5606226340004962,False
+Sulfolobaceae,Phage replication,1.3414634146341464,0.5687829712179417,5,18,all_families,1.0,False
+Sulfolobaceae,Prophage maintenance,0.0,0.1464945414013113,0,18,all_families,0.7091944552795906,False
+Sulfolobaceae,Tail & baseplate,0.0,1.0,0,18,all_families,1.0,False
+Haladaptataceae,Capsid & head,0.0,1.0,0,17,all_families,1.0,False
+Haladaptataceae,DNA packaging,0.0,1.0,0,17,all_families,1.0,False
+Haladaptataceae,Integrase,0.5217391304347826,0.3198044717224152,15,17,all_families,0.8659241164364161,False
+Haladaptataceae,Lysis & membrane,0.7994505494505495,1.0,3,17,all_families,1.0,False
+Haladaptataceae,Metabolic enzymes,1.206153846153846,0.759421734316128,4,17,all_families,1.0,False
+Haladaptataceae,Osmolyte transport,0.7149425287356321,1.0,2,17,all_families,1.0,False
+Haladaptataceae,Phage replication,0.7270408163265306,0.7728194901687531,3,17,all_families,1.0,False
+Haladaptataceae,Prophage maintenance,0.45,0.7056365266504332,1,17,all_families,1.0,False
+Haladaptataceae,Tail & baseplate,3.966666666666667,0.1216841041146633,2,17,all_families,0.6691392281719456,False
+Methanosarcinaceae,Capsid & head,0.0,1.0,0,7,all_families,1.0,False
+Methanosarcinaceae,DNA packaging,5.575757575757576,0.1997545294468942,1,7,all_families,0.7680263253839523,False
+Methanosarcinaceae,Integrase,0.423728813559322,0.3886641880478502,6,7,all_families,0.8744944231076631,False
+Methanosarcinaceae,Lysis & membrane,0.0,0.3531309968356055,0,7,all_families,0.8659241164364161,False
+Methanosarcinaceae,Metabolic enzymes,0.0,0.3528338302538896,0,7,all_families,0.8659241164364161,False
+Methanosarcinaceae,Osmolyte transport,0.0,0.6017931556634071,0,7,all_families,1.0,False
+Methanosarcinaceae,Phage replication,0.0,0.3573655083705844,0,7,all_families,0.8659241164364161,False
+Methanosarcinaceae,Prophage maintenance,0.0,1.0,0,7,all_families,1.0,False
+Methanosarcinaceae,Tail & baseplate,0.0,1.0,0,7,all_families,1.0,False
+Haloferacaceae,Capsid & head,2.0,0.3998366431178907,3,99,halobacteriota_only,0.8636471491346439,False
+Haloferacaceae,DNA packaging,0.2309833024118738,0.1914977469286583,1,99,halobacteriota_only,0.8617446922190342,False
+Haloferacaceae,Integrase,1.661522633744856,0.4575259906310159,95,99,halobacteriota_only,0.8931292709167249,False
+Haloferacaceae,Lysis & membrane,0.7584677419354838,0.3978196413451235,19,99,halobacteriota_only,0.8636471491346439,False
+Haloferacaceae,Metabolic enzymes,0.60279212086441,0.1170664527771958,16,99,halobacteriota_only,0.8617446922190342,False
+Haloferacaceae,Osmolyte transport,1.5256410256410255,0.1584988476996737,21,99,halobacteriota_only,0.8617446922190342,False
+Haloferacaceae,Phage replication,0.8783102143757882,0.7785614760846186,21,99,halobacteriota_only,0.95550726610385,False
+Haloferacaceae,Prophage maintenance,1.6513877207737595,0.1566662902301155,17,99,halobacteriota_only,0.8617446922190342,False
+Haloferacaceae,Tail & baseplate,2.032258064516129,0.2234152905753051,6,99,halobacteriota_only,0.8617446922190342,False
+Haloarculaceae,Capsid & head,1.1304347826086956,1.0,2,94,halobacteriota_only,1.0,False
+Haloarculaceae,DNA packaging,0.9377289377289376,1.0,3,94,halobacteriota_only,1.0,False
+Haloarculaceae,Integrase,1.1437751004016063,1.0,89,94,halobacteriota_only,1.0,False
+Haloarculaceae,Lysis & membrane,0.5724971231300345,0.0851836181131357,15,94,halobacteriota_only,0.8617446922190342,False
+Haloarculaceae,Metabolic enzymes,0.7228739002932552,0.3134988111966142,17,94,halobacteriota_only,0.8636471491346439,False
+Haloarculaceae,Osmolyte transport,1.1398369072787675,0.7477383372242952,17,94,halobacteriota_only,0.95550726610385,False
+Haloarculaceae,Phage replication,0.3621245545562532,0.0025253461896641,11,94,halobacteriota_only,0.0681843471209325,False
+Haloarculaceae,Prophage maintenance,0.8709122203098106,0.8576860142027738,11,94,halobacteriota_only,1.0,False
+Haloarculaceae,Tail & baseplate,0.4583333333333333,0.5344251506736154,2,94,halobacteriota_only,0.95550726610385,False
+Natrialbaceae,Capsid & head,1.2183908045977012,0.6850253173721143,2,89,halobacteriota_only,0.95550726610385,False
+Natrialbaceae,DNA packaging,2.236394557823129,0.1804481003305234,5,89,halobacteriota_only,0.8617446922190342,False
+Natrialbaceae,Integrase,2.0476190476190474,0.307831922610106,86,89,halobacteriota_only,0.8636471491346439,False
+Natrialbaceae,Lysis & membrane,2.026282051282051,0.012588292269375,29,89,halobacteriota_only,0.2265892608487505,False
+Natrialbaceae,Metabolic enzymes,1.1288032454361054,0.6609858315080446,21,89,halobacteriota_only,0.95550726610385,False
+Natrialbaceae,Osmolyte transport,0.8115901455767077,0.6245974382201682,13,89,halobacteriota_only,0.95550726610385,False
+Natrialbaceae,Phage replication,2.859090909090909,0.0001339692606523,34,89,halobacteriota_only,0.0072343400752278,True
+Natrialbaceae,Prophage maintenance,0.7084459459459459,0.4660802591445524,9,89,halobacteriota_only,0.8931292709167249,False
+Natrialbaceae,Tail & baseplate,1.223529411764706,0.754513469145162,4,89,halobacteriota_only,0.95550726610385,False
+Halobacteriaceae,Capsid & head,0.0,1.0,0,35,halobacteriota_only,1.0,False
+Halobacteriaceae,DNA packaging,1.903030303030303,0.3298959629378982,2,35,halobacteriota_only,0.8636471491346439,False
+Halobacteriaceae,Integrase,0.6274509803921569,0.4446855248568235,32,35,halobacteriota_only,0.8931292709167249,False
+Halobacteriaceae,Lysis & membrane,1.6630952380952382,0.2027382767523416,11,35,halobacteriota_only,0.8617446922190342,False
+Halobacteriaceae,Metabolic enzymes,2.00129785853342,0.0839326942505411,12,35,halobacteriota_only,0.8617446922190342,False
+Halobacteriaceae,Osmolyte transport,0.6175115207373272,0.4796434973441671,4,35,halobacteriota_only,0.8931292709167249,False
+Halobacteriaceae,Phage replication,1.190200210748156,0.6736467403185724,9,35,halobacteriota_only,0.95550726610385,False
+Halobacteriaceae,Prophage maintenance,0.8663594470046083,1.0,4,35,halobacteriota_only,1.0,False
+Halobacteriaceae,Tail & baseplate,0.0,0.3775559601672111,0,35,halobacteriota_only,0.8636471491346439,False
+Haladaptataceae,Capsid & head,0.0,1.0,0,17,halobacteriota_only,1.0,False
+Haladaptataceae,DNA packaging,0.0,1.0,0,17,halobacteriota_only,1.0,False
+Haladaptataceae,Integrase,0.4411764705882353,0.261355566664398,15,17,halobacteriota_only,0.8636471491346439,False
+Haladaptataceae,Lysis & membrane,0.7252747252747253,0.7723679537036336,3,17,halobacteriota_only,0.95550726610385,False
+Haladaptataceae,Metabolic enzymes,1.0953846153846154,0.7730335444822782,4,17,halobacteriota_only,0.95550726610385,False
+Haladaptataceae,Osmolyte transport,0.6528735632183909,0.7484507016491908,2,17,halobacteriota_only,0.95550726610385,False
+Haladaptataceae,Phage replication,0.713381555153707,0.7718850596744123,3,17,halobacteriota_only,0.95550726610385,False
+Haladaptataceae,Prophage maintenance,0.4125,0.7081367172313601,1,17,halobacteriota_only,0.95550726610385,False
+Haladaptataceae,Tail & baseplate,3.6666666666666665,0.1373919954008137,2,17,halobacteriota_only,0.8617446922190342,False
+Methanosarcinaceae,Capsid & head,0.0,1.0,0,7,halobacteriota_only,1.0,False
+Methanosarcinaceae,DNA packaging,5.166666666666667,0.2133968041614436,1,7,halobacteriota_only,0.8617446922190342,False
+Methanosarcinaceae,Integrase,0.3614457831325301,0.3466326023768978,6,7,halobacteriota_only,0.8636471491346439,False
+Methanosarcinaceae,Lysis & membrane,0.0,0.3571416075789477,0,7,halobacteriota_only,0.8636471491346439,False
+Methanosarcinaceae,Metabolic enzymes,0.0,0.3550340526617878,0,7,halobacteriota_only,0.8636471491346439,False
+Methanosarcinaceae,Osmolyte transport,0.0,0.6062212828606628,0,7,halobacteriota_only,0.95550726610385,False
+Methanosarcinaceae,Phage replication,0.0,0.3584184499089138,0,7,halobacteriota_only,0.8636471491346439,False
+Methanosarcinaceae,Prophage maintenance,0.0,0.6018157549839195,0,7,halobacteriota_only,0.95550726610385,False
+Methanosarcinaceae,Tail & baseplate,0.0,1.0,0,7,halobacteriota_only,1.0,False
