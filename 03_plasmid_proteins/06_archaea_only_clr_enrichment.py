@@ -1,17 +1,33 @@
 #!/usr/bin/env python3
-"""Intra-archaea CLR enrichment, phylum and family levels, with permutation test.
+"""Intra-archaea CLR enrichment — single-COG attribution per protein.
 
-CLR(x_i) = log((x_i + pseudo) / G) per plasmid × COG matrix, with G the
-geometric mean across categories. Permutation shuffles focal vs background
-group labels; inverse-species-frequency weighting on plasmid means.
+UPDATE vs streamlined_cross_domain/06_archaea_only_clr_enrichment.py
+--------------------------------------------------------------------
+Original `_explode_cog` produced one row per (replicon, COG-letter),
+so a protein with k COG letters contributed k times to that replicon's
+COG totals. After grouping to a plasmid × COG matrix this inflated the
+row sums above the true protein count and biased the CLR geometric mean
+and the per-letter deltas.
+
+This version uses weighted contributions: a protein's contribution to
+each of its k COG letters is 1/k. The plasmid × COG count matrix is then
+the sum of these per-letter weights per plasmid, preserving the
+invariant that each plasmid's total weight equals its annotated protein
+count.
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "streamlined_cross_domain"))
+
 import numpy as np
 import pandas as pd
 from statsmodels.stats.multitest import multipletests
 
-from common import (ARCHAEAL_EGGNOG, OUT_DIR, COG_DESCRIPTIONS,
+from common import (ARCHAEAL_EGGNOG, COG_DESCRIPTIONS,
                     N_PERM, PSEUDO, FAM_MIN, header)
 
+OUT_DIR = Path(__file__).resolve().parent / "outputs"
+OUT_DIR.mkdir(exist_ok=True)
 MIN_TOTAL_COUNT = 50    # drop sparse COGs
 
 
@@ -21,7 +37,8 @@ def _clr_transform(count_df, pseudo):
     return log_counts.sub(geo_mean, axis=0)
 
 
-def _explode_cog(df):
+def _weighted_cog_rows(df):
+    """One row per (replicon, COG) with weight = 1/k for each protein."""
     df = df.copy()
     df['COG_category'] = df['COG_category'].fillna('S')
     rows = []
@@ -29,10 +46,13 @@ def _explode_cog(df):
         cogs = [c for c in str(r['COG_category']) if c in COG_DESCRIPTIONS]
         if not cogs:
             cogs = ['S']
+        w = 1.0 / len(cogs)
         for c in cogs:
-            rows.append({'replicon': r['replicon'], 'gtdb_phylum': r['gtdb_phylum'],
+            rows.append({'replicon': r['replicon'],
+                         'gtdb_phylum': r['gtdb_phylum'],
                          'gtdb_family': r['gtdb_family'],
-                         'gtdb_species': r['gtdb_species'], 'COG': c})
+                         'gtdb_species': r['gtdb_species'],
+                         'COG': c, 'w': w})
     return pd.DataFrame(rows)
 
 
@@ -42,7 +62,6 @@ def _clr_perm_test(plasmid_clr, weights, groups, n_perm, min_plas=1):
     clr = plasmid_clr.loc[common]
     w   = weights.loc[common].to_numpy()
     g   = groups.loc[common]
-
     results = []
     for grp_name, members in g.groupby(g).groups.items():
         focal = list(members)
@@ -57,9 +76,8 @@ def _clr_perm_test(plasmid_clr, weights, groups, n_perm, min_plas=1):
             count = 0
             for _ in range(n_perm):
                 perm = rng.permutation(mask_focal)
-                m1 = perm; m2 = ~perm
-                pd_delta = (np.average(x[m1], weights=w[m1]) -
-                            np.average(x[m2], weights=w[m2]))
+                pd_delta = (np.average(x[perm], weights=w[perm]) -
+                            np.average(x[~perm], weights=w[~perm]))
                 if abs(pd_delta) >= abs(obs_delta):
                     count += 1
             p_raw = (count + 1) / (n_perm + 1)
@@ -74,37 +92,44 @@ def _clr_perm_test(plasmid_clr, weights, groups, n_perm, min_plas=1):
 
 
 def main():
-    header("INTRA-ARCHAEA CLR ENRICHMENT")
+    header("INTRA-ARCHAEA CLR ENRICHMENT (updated: weighted COG attribution)")
     df = pd.read_csv(ARCHAEAL_EGGNOG, sep='\t', low_memory=False)
     print(f"Archaeal plasmid proteins: {len(df):,}")
     df['phylum_short'] = df['gtdb_phylum'].str.replace('p__', '', regex=False)
     df['family_short'] = df['gtdb_family'].str.replace('f__', '', regex=False)
 
-    exploded = _explode_cog(df)
+    weighted = _weighted_cog_rows(df)
+    print(f"Weighted (replicon, COG) rows: {len(weighted):,}  "
+          f"(total weight ≈ {weighted['w'].sum():,.0f} = annotated protein count)")
 
-    pc = exploded.groupby(['replicon', 'COG']).size().unstack(fill_value=0)
+    # Plasmid × COG weighted-count matrix.
+    pc = (weighted
+          .groupby(['replicon', 'COG'])['w']
+          .sum()
+          .unstack(fill_value=0))
     sparse = pc.columns[pc.sum(0) < MIN_TOTAL_COUNT].tolist()
     pc = pc.drop(columns=sparse)
 
-    sp = exploded.groupby('replicon')['gtdb_species'].first()
-    counts_per_sp = exploded.groupby('gtdb_species')['replicon'].nunique()
-    weights = sp.map(lambda s: 1.0 / counts_per_sp.get(s, 1))
+    sp = weighted.groupby('replicon')['gtdb_species'].first()
+    counts_per_sp = weighted.groupby('gtdb_species')['replicon'].nunique()
+    weights_per_plasmid = sp.map(lambda s: 1.0 / counts_per_sp.get(s, 1))
 
     plasmid_clr = _clr_transform(pc, PSEUDO)
     phylum = df.groupby('replicon')['phylum_short'].first()
     family = df.groupby('replicon')['family_short'].first()
 
-    res_p = _clr_perm_test(plasmid_clr, weights, phylum, N_PERM)
-    res_f = _clr_perm_test(plasmid_clr, weights, family, N_PERM, min_plas=FAM_MIN)
+    res_p = _clr_perm_test(plasmid_clr, weights_per_plasmid, phylum, N_PERM)
+    res_f = _clr_perm_test(plasmid_clr, weights_per_plasmid, family, N_PERM,
+                           min_plas=FAM_MIN)
 
     res_p.to_csv(OUT_DIR / "CLR_enrichment_phylum.csv", index=False)
     res_f.to_csv(OUT_DIR / "CLR_enrichment_family.csv", index=False)
 
-    print("\nPhylum-level (significant rows):")
+    print("\nPhylum-level (significant):")
     print(res_p[res_p['significant']]
           .sort_values(['group', 'delta'], ascending=[True, False])
           .to_string(index=False))
-    print("\nFamily-level (significant rows):")
+    print("\nFamily-level (significant):")
     print(res_f[res_f['significant']]
           .sort_values(['group', 'delta'], ascending=[True, False])
           .to_string(index=False))
