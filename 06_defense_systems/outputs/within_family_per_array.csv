@@ -1,0 +1,4 @@
+source_family,n_arrays,arrays_with_same_family_hit,other_arrays,other_arrays_hitting_this_family,OR,p_raw,p_adj
+f__Haloferacaceae,6,5,15,0,inf,0.0002948547840188707,0.0008845643520566122
+f__Natrialbaceae,3,3,18,2,inf,0.0075187969924812035,0.011278195488721806
+f__Haloarculaceae,8,5,13,2,9.166666666666666,0.04076367389060887,0.04076367389060887
