@@ -1,22 +1,6 @@
 #!/usr/bin/env python3
 """Nucleotide-distance proximity between VirB4 and T4CP on each plasmid.
 
-UPDATE vs streamlined_conjugation/02_proximity_analysis.py
-----------------------------------------------------------
-Original computed `min_distance` on the `position_hit` column, which is
-the ORF index, then reported "immediately adjacent in 80.9% of cases".
-That conflates ORF-index distance with nucleotide adjacency and includes
-fused (distance 0) and adjacent (distance 1) ORFs together. It also used
-`both_reps` (= replicons with both genes present) as the denominator,
-which is not the 149-region count the manuscript cites.
-
-This version:
-  (a) computes nucleotide distance from the `begin`/`end` columns;
-  (b) defines "immediately adjacent" with explicit thresholds:
-      consecutive ORFs (|orf_idx_diff| == 1) and tight nucleotide
-      gap (< 2 kb between gene ends);
-  (c) reports the percentage at each threshold so the manuscript can
-      pick the one it intends to claim.
 """
 import sys
 from pathlib import Path
