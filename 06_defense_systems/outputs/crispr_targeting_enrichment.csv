@@ -1,0 +1,2 @@
+n_plasmid_hits,n_virus_hits,plasmid_kb,virus_kb,expected_plasmid_frac,fold_enrichment,chi2,p_value,rate_ratio_per_kb,wilcoxon_W,wilcoxon_p,n_arrays
+212,43,87575.2,1969185.9,0.0426,19.53,3891.94,0.0,110.9,270.0,1.4377720227183936e-05,23

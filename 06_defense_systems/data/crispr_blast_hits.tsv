@@ -1,0 +1,256 @@
+qseqid	sseqid	pident	length	mismatch	gapopen	qstart	qend	sstart	send	evalue	bitscore	qlen	slen	query_coverage	source_plasmid	target_category	source_phylum	source_family	target_phylum	target_family	target_plasmid
+CP007061_1_1__spacer15	NC_054953	97.222	36	1	0	1	36	46565	46530	2.11e-09	63.9	36	55145	100.0	CP007061_1_1	virus	p__Halobacteriota	f__Halobacteriaceae			NC_054953
+CP007061_1_1__spacer47	OP374082	100.0	35	0	0	1	35	8647	8613	3.23e-11	69.9	35	46173	100.0	CP007061_1_1	virus	p__Halobacteriota	f__Halobacteriaceae			OP374082
+CP007061_1_1__spacer47	CP031304.1	100.0	35	0	0	1	35	739573	739539	3.23e-11	69.9	35	987326	100.0	CP007061_1_1	plasmid	p__Halobacteriota	f__Halobacteriaceae	p__Halobacteriota	f__Natrialbaceae	CP031304.1
+CP031304_1_1__spacer0	CP031299.1	100.0	35	0	0	1	35	51005	50971	3.23e-11	69.9	35	86496	100.0	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031299.1
+CP031304_1_1__spacer1	CP031301.1	100.0	36	0	0	1	36	41785	41820	8.65e-12	71.9	36	49411	100.0	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031301.1
+CP031304_1_1__spacer2	CP031301.1	100.0	35	0	0	1	35	41269	41235	3.23e-11	69.9	35	49411	100.0	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031301.1
+CP031304_1_1__spacer6	CP031299.1	100.0	36	0	0	1	36	21766	21731	8.65e-12	71.9	36	86496	100.0	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031299.1
+CP031304_1_1__spacer7	CP031299.1	100.0	34	0	0	1	34	19680	19647	1.43e-10	67.9	37	86496	91.8918918918919	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031299.1
+CP031304_1_1__spacer10	CP031301.1	100.0	32	0	0	1	32	1107	1138	1.99e-09	63.9	35	49411	91.42857142857144	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031301.1
+CP031304_1_1__spacer19	CP031301.1	100.0	35	0	0	1	35	21368	21402	3.23e-11	69.9	35	49411	100.0	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031301.1
+CP031304_1_1__spacer25	CP031299.1	96.97	33	1	0	2	34	7063	7095	1.16e-07	58.0	34	86496	97.05882352941175	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031299.1
+CP031304_1_1__spacer28	CP031299.1	97.059	34	1	0	2	35	2716	2749	3.11e-08	60.0	35	86496	97.14285714285714	CP031304_1_1	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP031299.1
+CP040680_1_1__spacer0	CP046867.1	100.0	37	0	0	1	37	89068	89032	2.31e-12	73.8	37	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer1	CP046867.1	100.0	37	0	0	1	37	88994	88958	2.31e-12	73.8	37	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer2	CP046867.1	100.0	36	0	0	1	36	88920	88885	8.65e-12	71.9	36	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer3	CP046867.1	100.0	37	0	0	1	37	88847	88811	2.31e-12	73.8	37	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer4	CP046867.1	100.0	39	0	0	1	39	88773	88735	1.64e-13	77.8	39	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer5	CP046867.1	100.0	36	0	0	1	36	88697	88662	8.65e-12	71.9	36	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer6	CP046867.1	100.0	36	0	0	1	36	88624	88589	8.65e-12	71.9	36	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer7	CP046867.1	100.0	36	0	0	1	36	88551	88516	8.65e-12	71.9	36	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer8	CP046867.1	100.0	38	0	0	1	38	88478	88441	6.16e-13	75.8	38	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer9	CP046867.1	100.0	35	0	0	1	35	88403	88369	3.23e-11	69.9	35	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer10	CP046867.1	100.0	37	0	0	1	37	88331	88295	2.31e-12	73.8	37	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer11	CP046867.1	100.0	35	0	0	1	35	88257	88223	3.23e-11	69.9	35	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer12	CP046867.1	100.0	38	0	0	1	38	88185	88148	6.16e-13	75.8	38	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_1__spacer13	CP046867.1	100.0	37	0	0	1	37	88110	88074	2.31e-12	73.8	37	316107	100.0	CP040680_1_1	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer0	CP046867.1	100.0	37	0	0	1	37	78007	77971	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer1	CP046867.1	100.0	38	0	0	1	38	77933	77896	6.16e-13	75.8	38	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer2	CP046867.1	100.0	36	0	0	1	36	77858	77823	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer3	CP046867.1	100.0	36	0	0	1	36	77785	77750	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer4	CP046867.1	100.0	39	0	0	1	39	77712	77674	1.64e-13	77.8	39	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer5	CP046867.1	100.0	34	0	0	1	34	77636	77603	1.2e-10	67.9	34	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer6	CP046867.1	100.0	34	0	0	1	34	77565	77532	1.2e-10	67.9	34	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer7	CP046867.1	100.0	37	0	0	1	37	77494	77458	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer8	CP046867.1	100.0	54	0	0	1	54	77420	77367	3.14e-22	107.0	54	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer9	CP046867.1	100.0	35	0	0	1	35	77329	77295	3.23e-11	69.9	35	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer10	CP046867.1	100.0	37	0	0	1	37	77257	77221	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer11	CP046867.1	100.0	37	0	0	1	37	77183	77147	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer12	CP046867.1	100.0	55	0	0	1	55	77109	77055	8.159999999999999e-23	109.0	55	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer13	CP046867.1	100.0	48	0	0	1	48	77017	76970	9.95e-19	95.6	48	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer14	CP046867.1	100.0	37	0	0	1	37	76932	76896	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer15	CP046867.1	100.0	37	0	0	1	37	76858	76822	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer16	CP046867.1	100.0	37	0	0	1	37	76784	76748	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer17	CP046867.1	100.0	34	0	0	1	34	76710	76677	1.2e-10	67.9	34	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer18	CP046867.1	100.0	36	0	0	1	36	76566	76531	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer18	CP046867.1	100.0	36	0	0	1	36	76639	76604	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer19	CP046867.1	100.0	36	0	0	1	36	76493	76458	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer20	CP046867.1	100.0	37	0	0	1	37	76420	76384	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer21	CP046867.1	100.0	35	0	0	1	35	76346	76312	3.23e-11	69.9	35	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer22	CP046867.1	100.0	40	0	0	1	40	76274	76235	4.34e-14	79.8	40	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer23	CP046867.1	100.0	36	0	0	1	36	76197	76162	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer24	CP046867.1	100.0	38	0	0	1	38	76124	76087	6.16e-13	75.8	38	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer25	CP046867.1	100.0	37	0	0	1	37	76049	76013	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer26	CP046867.1	100.0	36	0	0	1	36	75975	75940	8.65e-12	71.9	36	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer27	CP046867.1	100.0	33	0	0	1	33	75902	75870	4.45e-10	65.9	33	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer28	CP046867.1	100.0	35	0	0	1	35	75832	75798	3.23e-11	69.9	35	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer29	CP046867.1	100.0	37	0	0	1	37	75760	75724	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer30	CP046867.1	100.0	37	0	0	1	37	75686	75650	2.31e-12	73.8	37	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer31	CP046867.1	100.0	38	0	0	1	38	75612	75575	6.16e-13	75.8	38	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP040680_1_2__spacer32	CP046867.1	100.0	35	0	0	1	35	75537	75503	3.23e-11	69.9	35	316107	100.0	CP040680_1_2	plasmid	p__Halobacteriota	f__QS-9-68-17	p__Halobacteriota	f__Haloarculaceae	CP046867.1
+CP046867_1_1__spacer0	CP040680.1	100.0	35	0	0	1	35	220036	220002	3.23e-11	69.9	35	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer1	CP040680.1	100.0	38	0	0	1	38	219964	219927	6.16e-13	75.8	38	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer2	CP040680.1	100.0	37	0	0	1	37	219889	219853	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer3	CP040680.1	100.0	37	0	0	1	37	219815	219779	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer4	CP040680.1	100.0	35	0	0	1	35	219741	219707	3.23e-11	69.9	35	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer5	CP040680.1	100.0	33	0	0	1	33	219669	219637	4.45e-10	65.9	33	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer6	CP040680.1	100.0	36	0	0	1	36	219599	219564	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer7	CP040680.1	100.0	37	0	0	1	37	219526	219490	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer8	CP040680.1	100.0	38	0	0	1	38	219452	219415	6.16e-13	75.8	38	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer9	CP040680.1	100.0	36	0	0	1	36	219377	219342	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer10	CP040680.1	100.0	40	0	0	1	40	219304	219265	4.34e-14	79.8	40	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer11	CP040680.1	100.0	35	0	0	1	35	219227	219193	3.23e-11	69.9	35	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer12	CP040680.1	100.0	37	0	0	1	37	219155	219119	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer13	CP040680.1	100.0	36	0	0	1	36	219081	219046	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer14	CP040680.1	100.0	36	0	0	1	36	218935	218900	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer14	CP040680.1	100.0	36	0	0	1	36	219008	218973	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer15	CP040680.1	100.0	34	0	0	1	34	218862	218829	1.2e-10	67.9	34	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer16	CP040680.1	100.0	37	0	0	1	37	218791	218755	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer17	CP040680.1	100.0	37	0	0	1	37	218717	218681	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer18	CP040680.1	100.0	37	0	0	1	37	218643	218607	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer19	CP040680.1	100.0	48	0	0	1	48	218569	218522	9.95e-19	95.6	48	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer20	CP040680.1	100.0	55	0	0	1	55	218484	218430	8.159999999999999e-23	109.0	55	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer21	CP040680.1	100.0	37	0	0	1	37	218392	218356	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer22	CP040680.1	100.0	37	0	0	1	37	218318	218282	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer23	CP040680.1	100.0	35	0	0	1	35	218244	218210	3.23e-11	69.9	35	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer24	CP040680.1	100.0	54	0	0	1	54	218172	218119	3.14e-22	107.0	54	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer25	CP040680.1	100.0	37	0	0	1	37	218081	218045	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer26	CP040680.1	100.0	34	0	0	1	34	218007	217974	1.2e-10	67.9	34	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer27	CP040680.1	100.0	34	0	0	1	34	217936	217903	1.2e-10	67.9	34	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer28	CP040680.1	100.0	39	0	0	1	39	217865	217827	1.64e-13	77.8	39	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer29	CP040680.1	100.0	36	0	0	1	36	217789	217754	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer30	CP040680.1	100.0	36	0	0	1	36	217716	217681	8.65e-12	71.9	36	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer31	CP040680.1	100.0	38	0	0	1	38	217643	217606	6.16e-13	75.8	38	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_1__spacer32	CP040680.1	100.0	37	0	0	1	37	217568	217532	2.31e-12	73.8	37	316071	100.0	CP046867_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer0	CP040680.1	100.0	37	0	0	1	37	207465	207429	2.31e-12	73.8	37	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer1	CP040680.1	100.0	38	0	0	1	38	207391	207354	6.16e-13	75.8	38	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer2	CP040680.1	100.0	35	0	0	1	35	207316	207282	3.23e-11	69.9	35	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer3	CP040680.1	100.0	37	0	0	1	37	207244	207208	2.31e-12	73.8	37	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer4	CP040680.1	100.0	35	0	0	1	35	207170	207136	3.23e-11	69.9	35	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer5	CP040680.1	100.0	38	0	0	1	38	207098	207061	6.16e-13	75.8	38	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer6	CP040680.1	100.0	36	0	0	1	36	207023	206988	8.65e-12	71.9	36	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer7	CP040680.1	100.0	36	0	0	1	36	206950	206915	8.65e-12	71.9	36	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer8	CP040680.1	100.0	36	0	0	1	36	206877	206842	8.65e-12	71.9	36	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer9	CP040680.1	100.0	39	0	0	1	39	206804	206766	1.64e-13	77.8	39	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer10	CP040680.1	100.0	37	0	0	1	37	206728	206692	2.31e-12	73.8	37	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer11	CP040680.1	100.0	36	0	0	1	36	206654	206619	8.65e-12	71.9	36	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer12	CP040680.1	100.0	37	0	0	1	37	206581	206545	2.31e-12	73.8	37	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP046867_1_2__spacer13	CP040680.1	100.0	37	0	0	1	37	206507	206471	2.31e-12	73.8	37	316071	100.0	CP046867_1_2	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__QS-9-68-17	CP040680.1
+CP050018_1_1__spacer31	CP031301.1	97.059	34	1	0	1	34	21307	21274	2.93e-08	60.0	34	49411	100.0	CP050018_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Natrialbaceae	CP031301.1
+NC_006392_1_2__spacer9	NC_021471	97.297	37	1	0	1	37	3729	3765	5.63e-10	65.9	37	32189	100.0	NC_006392_1_2	virus					NC_021471
+NC_006392_1_3__spacer8	NC_021471	97.297	37	1	0	1	37	3362	3398	5.63e-10	65.9	37	32189	100.0	NC_006392_1_3	virus	p__Halobacteriota	f__Haloarculaceae			NC_021471
+NC_006392_1_3__spacer47	NZ_CP073368.1	100.0	35	0	0	1	35	412473	412439	3.23e-11	69.9	35	540110	100.0	NC_006392_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP073368.1
+NC_012030_1_1__spacer30	OP630576	100.0	35	0	0	1	35	10108	10074	3.23e-11	69.9	35	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer30	OP630575	100.0	35	0	0	1	35	1835	1801	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer30	OP630575	100.0	35	0	0	1	35	39828	39794	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer30	OP630574	100.0	35	0	0	1	35	10171	10137	3.23e-11	69.9	35	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer72	OP630575	100.0	35	0	0	1	35	25446	25412	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer73	OP630576	100.0	32	0	0	3	34	10540	10509	1.87e-09	63.9	34	28605	94.11764705882352	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer73	OP630575	100.0	32	0	0	3	34	2267	2236	1.87e-09	63.9	34	66249	94.11764705882352	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer73	OP630575	100.0	32	0	0	3	34	40260	40229	1.87e-09	63.9	34	66249	94.11764705882352	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer73	OP630574	100.0	32	0	0	3	34	10603	10572	1.87e-09	63.9	34	37702	94.11764705882352	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer79	CP007061.1	100.0	36	0	0	1	36	214763	214798	8.65e-12	71.9	36	315592	100.0	NC_012030_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Halobacteriaceae	CP007061.1
+NC_012030_1_1__spacer96	OP630576	100.0	35	0	0	1	35	6841	6807	3.23e-11	69.9	35	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer96	OP630575	100.0	35	0	0	1	35	36561	36527	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer96	OP630574	100.0	35	0	0	1	35	6904	6870	3.23e-11	69.9	35	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer98	OP630576	100.0	36	0	0	1	36	16177	16142	8.65e-12	71.9	36	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer98	OP630575	100.0	36	0	0	1	36	60230	60195	8.65e-12	71.9	36	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer98	OP630574	100.0	36	0	0	1	36	35496	35461	8.65e-12	71.9	36	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer110	OP630574	100.0	36	0	0	1	36	17315	17280	8.65e-12	71.9	36	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer113	OP630575	100.0	35	0	0	1	35	14286	14320	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer113	OP630575	100.0	35	0	0	1	35	48460	48494	3.23e-11	69.9	35	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer113	OP630574	100.0	35	0	0	1	35	22776	22810	3.23e-11	69.9	35	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_1__spacer113	OP630576	100.0	35	0	0	1	35	92	58	3.23e-11	69.9	35	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer113	OP630576	100.0	35	0	0	1	35	25880	25846	3.23e-11	69.9	35	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer113	OP630576	100.0	35	0	0	1	35	28570	28536	3.23e-11	69.9	35	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer119	OP630576	100.0	34	0	0	1	34	15044	15011	1.2e-10	67.9	34	28605	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630576
+NC_012030_1_1__spacer119	OP630575	100.0	34	0	0	1	34	59097	59064	1.2e-10	67.9	34	66249	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630575
+NC_012030_1_1__spacer119	OP630574	100.0	34	0	0	1	34	34363	34330	1.2e-10	67.9	34	37702	100.0	NC_012030_1_1	virus	p__Halobacteriota	f__Haloferacaceae			OP630574
+NC_012030_1_5__spacer2	OP630575	100.0	36	0	0	1	36	64699	64734	8.65e-12	71.9	36	66249	100.0	NC_012030_1_5	virus					OP630575
+NC_012030_1_5__spacer2	OP630574	100.0	36	0	0	1	36	2263	2298	8.65e-12	71.9	36	37702	100.0	NC_012030_1_5	virus					OP630574
+NC_012030_1_5__spacer8	OP630576	100.0	36	0	0	1	36	13408	13443	8.65e-12	71.9	36	28605	100.0	NC_012030_1_5	virus					OP630576
+NC_012030_1_5__spacer8	OP630575	100.0	36	0	0	1	36	23254	23289	8.65e-12	71.9	36	66249	100.0	NC_012030_1_5	virus					OP630575
+NC_012030_1_5__spacer8	OP630575	100.0	36	0	0	1	36	57461	57496	8.65e-12	71.9	36	66249	100.0	NC_012030_1_5	virus					OP630575
+NC_012030_1_5__spacer8	OP630574	100.0	36	0	0	1	36	32727	32762	8.65e-12	71.9	36	37702	100.0	NC_012030_1_5	virus					OP630574
+NC_012030_1_5__spacer20	OP630575	100.0	35	0	0	1	35	34439	34473	3.23e-11	69.9	35	66249	100.0	NC_012030_1_5	virus					OP630575
+NC_012030_1_5__spacer20	OP630574	100.0	35	0	0	1	35	4782	4816	3.23e-11	69.9	35	37702	100.0	NC_012030_1_5	virus					OP630574
+NC_012030_1_5__spacer38	OP630575	100.0	37	0	0	1	37	32160	32124	2.31e-12	73.8	37	66249	100.0	NC_012030_1_5	virus					OP630575
+NC_012030_1_5__spacer39	OP630576	100.0	37	0	0	1	37	4370	4406	2.31e-12	73.8	37	28605	100.0	NC_012030_1_5	virus					OP630576
+NC_013966_1_2__spacer1	PP151251	97.143	35	1	0	1	35	15030	15064	7.87e-09	61.9	35	24864	100.0	NC_013966_1_2	virus	p__Halobacteriota	f__Haloferacaceae			PP151251
+NC_013966_1_2__spacer2	PP151251	100.0	33	0	0	1	33	15864	15896	4.45e-10	65.9	33	24864	100.0	NC_013966_1_2	virus	p__Halobacteriota	f__Haloferacaceae			PP151251
+NC_013966_1_2__spacer10	NZ_CP104743.1	100.0	33	0	0	1	33	263143	263175	4.45e-10	65.9	33	285035	100.0	NC_013966_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP104743.1
+NC_017944_1_2__spacer0	NZ_CP007554.1	100.0	38	0	0	1	38	196059	196022	6.16e-13	75.8	38	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer1	NZ_CP007554.1	100.0	36	0	0	1	36	195991	195956	8.65e-12	71.9	36	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer2	NZ_CP007554.1	100.0	36	0	0	1	36	195925	195890	8.65e-12	71.9	36	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer3	NZ_CP007554.1	100.0	38	0	0	1	38	195859	195822	6.16e-13	75.8	38	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer4	NZ_CP007554.1	100.0	36	0	0	1	36	195791	195756	8.65e-12	71.9	36	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer5	NZ_CP007554.1	100.0	35	0	0	1	35	195725	195691	3.23e-11	69.9	35	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer5	NZ_CP007554.1	100.0	32	0	0	1	32	183904	183873	1.99e-09	63.9	35	505931	91.42857142857144	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer6	NZ_CP007554.1	100.0	35	0	0	1	35	195660	195626	3.23e-11	69.9	35	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer7	NZ_CP007554.1	100.0	35	0	0	1	35	195595	195561	3.23e-11	69.9	35	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer8	NZ_CP007554.1	100.0	37	0	0	1	37	195530	195494	2.31e-12	73.8	37	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_2__spacer9	NZ_CP007554.1	100.0	35	0	0	1	35	195463	195429	3.23e-11	69.9	35	505931	100.0	NC_017944_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer0	NZ_CP007554.1	100.0	35	0	0	1	35	185224	185190	3.23e-11	69.9	35	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer1	NZ_CP007554.1	100.0	37	0	0	1	37	185159	185123	2.31e-12	73.8	37	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer2	NZ_CP007554.1	100.0	35	0	0	1	35	185092	185058	3.23e-11	69.9	35	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer3	NZ_CP007554.1	100.0	34	0	0	1	34	185027	184994	1.2e-10	67.9	34	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer4	NZ_CP007554.1	100.0	37	0	0	1	37	184963	184927	2.31e-12	73.8	37	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer5	NZ_CP007554.1	100.0	36	0	0	1	36	184896	184861	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer6	NZ_CP007554.1	100.0	36	0	0	1	36	184830	184795	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer7	NZ_CP007554.1	100.0	36	0	0	1	36	184764	184729	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer8	NZ_CP007554.1	100.0	34	0	0	1	34	184698	184665	1.2e-10	67.9	34	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer9	NZ_CP007554.1	100.0	36	0	0	1	36	184634	184599	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer10	NZ_CP007554.1	100.0	36	0	0	1	36	184568	184533	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer11	NZ_CP007554.1	100.0	39	0	0	1	39	184502	184464	1.64e-13	77.8	39	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer12	NZ_CP007554.1	100.0	38	0	0	1	38	184433	184396	6.16e-13	75.8	38	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer13	NZ_CP007554.1	100.0	37	0	0	1	37	184365	184329	2.31e-12	73.8	37	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer14	NZ_CP007554.1	100.0	34	0	0	1	34	184298	184265	1.2e-10	67.9	34	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer15	NZ_CP007554.1	100.0	38	0	0	1	38	184234	184197	6.16e-13	75.8	38	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer16	NZ_CP007554.1	100.0	36	0	0	1	36	184166	184131	8.65e-12	71.9	36	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer17	NZ_CP007554.1	100.0	38	0	0	1	38	184100	184063	6.16e-13	75.8	38	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer18	NZ_CP007554.1	100.0	34	0	0	1	34	184032	183999	1.2e-10	67.9	34	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer19	NZ_CP007554.1	100.0	34	0	0	1	34	183968	183935	1.2e-10	67.9	34	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer20	NZ_CP007554.1	100.0	35	0	0	1	35	183904	183870	3.23e-11	69.9	35	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer20	NZ_CP007554.1	100.0	32	0	0	1	32	195725	195694	1.99e-09	63.9	35	505931	91.42857142857144	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NC_017944_1_3__spacer21	NZ_CP007554.1	100.0	35	0	0	1	35	183839	183805	3.23e-11	69.9	35	505931	100.0	NC_017944_1_3	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NZ_CP007554.1
+NZ_CP007554_1_1__spacer0	NC_017944.1	100.0	35	0	0	1	35	345971	345937	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer1	NC_017944.1	100.0	35	0	0	1	35	345906	345872	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer1	NC_017944.1	100.0	32	0	0	4	35	334082	334051	1.99e-09	63.9	35	504705	91.42857142857144	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer2	NC_017944.1	100.0	34	0	0	1	34	345841	345808	1.2e-10	67.9	34	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer3	NC_017944.1	100.0	34	0	0	1	34	345777	345744	1.2e-10	67.9	34	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer4	NC_017944.1	100.0	38	0	0	1	38	345713	345676	6.16e-13	75.8	38	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer5	NC_017944.1	100.0	36	0	0	1	36	345645	345610	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer6	NC_017944.1	100.0	38	0	0	1	38	345579	345542	6.16e-13	75.8	38	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer7	NC_017944.1	100.0	34	0	0	1	34	345511	345478	1.2e-10	67.9	34	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer8	NC_017944.1	100.0	37	0	0	1	37	345447	345411	2.31e-12	73.8	37	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer9	NC_017944.1	100.0	38	0	0	1	38	345380	345343	6.16e-13	75.8	38	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer10	NC_017944.1	100.0	39	0	0	1	39	345312	345274	1.64e-13	77.8	39	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer11	NC_017944.1	100.0	36	0	0	1	36	345243	345208	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer12	NC_017944.1	100.0	36	0	0	1	36	345177	345142	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer13	NC_017944.1	100.0	34	0	0	1	34	345111	345078	1.2e-10	67.9	34	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer14	NC_017944.1	100.0	36	0	0	1	36	345047	345012	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer15	NC_017944.1	100.0	36	0	0	1	36	344981	344946	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer16	NC_017944.1	100.0	36	0	0	1	36	344915	344880	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer17	NC_017944.1	100.0	37	0	0	1	37	344849	344813	2.31e-12	73.8	37	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer18	NC_017944.1	100.0	34	0	0	1	34	344782	344749	1.2e-10	67.9	34	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer19	NC_017944.1	100.0	35	0	0	1	35	344718	344684	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer20	NC_017944.1	100.0	37	0	0	1	37	344653	344617	2.31e-12	73.8	37	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_1__spacer21	NC_017944.1	100.0	35	0	0	1	35	344586	344552	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_1	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer0	NC_017944.1	100.0	35	0	0	1	35	334347	334313	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer1	NC_017944.1	100.0	37	0	0	1	37	334282	334246	2.31e-12	73.8	37	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer2	NC_017944.1	100.0	35	0	0	1	35	334215	334181	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer3	NC_017944.1	100.0	35	0	0	1	35	334150	334116	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer4	NC_017944.1	100.0	35	0	0	1	35	334085	334051	3.23e-11	69.9	35	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer4	NC_017944.1	100.0	32	0	0	4	35	345903	345872	1.99e-09	63.9	35	504705	91.42857142857144	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer5	NC_017944.1	100.0	36	0	0	1	36	334020	333985	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer6	NC_017944.1	100.0	38	0	0	1	38	333954	333917	6.16e-13	75.8	38	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer7	NC_017944.1	100.0	36	0	0	1	36	333886	333851	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer8	NC_017944.1	100.0	36	0	0	1	36	333820	333785	8.65e-12	71.9	36	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP007554_1_2__spacer9	NC_017944.1	100.0	38	0	0	1	38	333754	333717	6.16e-13	75.8	38	504705	100.0	NZ_CP007554_1_2	plasmid	p__Halobacteriota	f__Haloferacaceae	p__Halobacteriota	f__Haloferacaceae	NC_017944.1
+NZ_CP054709_1_2__spacer5	NZ_CP054708.1	100.0	32	0	0	1	32	389590	389621	1.99e-09	63.9	35	602938	91.42857142857144	NZ_CP054709_1_2	plasmid	p__Halobacteriota	f__Halobacteriaceae	p__Halobacteriota	f__Halobacteriaceae	NZ_CP054708.1
+NZ_CP073368_1_6__spacer3	NC_013758	97.143	35	1	0	1	35	7840	7806	7.87e-09	61.9	35	8082	100.0	NZ_CP073368_1_6	virus	p__Halobacteriota	f__Haloarculaceae			NC_013758
+NZ_CP073368_1_6__spacer9	NC_062757	97.222	36	1	0	1	36	32594	32559	2.11e-09	63.9	36	42293	100.0	NZ_CP073368_1_6	virus	p__Halobacteriota	f__Haloarculaceae			NC_062757
+NZ_CP073368_1_6__spacer13	NZ_CP039137.1	100.0	36	0	0	1	36	362861	362826	8.65e-12	71.9	36	410547	100.0	NZ_CP073368_1_6	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP039137.1
+NZ_CP073368_1_6__spacer13	NZ_CP073369.1	100.0	36	0	0	1	36	222756	222791	8.65e-12	71.9	36	387656	100.0	NZ_CP073368_1_6	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP073369.1
+NZ_CP073368_1_6__spacer31	NC_006392.1	100.0	34	0	0	1	34	49820	49787	1.2e-10	67.9	34	50060	100.0	NZ_CP073368_1_6	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NC_006392.1
+NZ_CP109982_1_1__spacer0	NZ_CP110252.1	100.0	26	0	0	1	26	85721	85696	4.01e-06	52.0	26	317901	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_1__spacer1	NZ_CP110252.1	100.0	35	0	0	1	35	85658	85624	3.23e-11	69.9	35	317901	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_1__spacer2	NZ_CP110252.1	100.0	36	0	0	1	36	85586	85551	8.65e-12	71.9	36	317901	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_1__spacer3	NZ_CP110252.1	100.0	37	0	0	1	37	85513	85477	2.31e-12	73.8	37	317901	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_1__spacer3	NZ_CP109786.1	100.0	37	0	0	1	37	13961	13925	2.31e-12	73.8	37	41784	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109786.1
+NZ_CP109982_1_1__spacer4	NZ_CP110252.1	100.0	36	0	0	1	36	85439	85404	8.65e-12	71.9	36	317901	100.0	NZ_CP109982_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_3__spacer0	NZ_CP110252.1	100.0	26	0	0	1	26	85721	85696	4.01e-06	52.0	26	317901	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_3__spacer1	NZ_CP110252.1	100.0	35	0	0	1	35	85658	85624	3.23e-11	69.9	35	317901	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_3__spacer2	NZ_CP110252.1	100.0	36	0	0	1	36	85586	85551	8.65e-12	71.9	36	317901	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_3__spacer3	NZ_CP110252.1	100.0	37	0	0	1	37	85513	85477	2.31e-12	73.8	37	317901	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP109982_1_3__spacer3	NZ_CP109786.1	100.0	37	0	0	1	37	13961	13925	2.31e-12	73.8	37	41784	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109786.1
+NZ_CP109982_1_3__spacer4	NZ_CP110252.1	100.0	36	0	0	1	36	85439	85404	8.65e-12	71.9	36	317901	100.0	NZ_CP109982_1_3	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP110252.1
+NZ_CP110252_1_1__spacer0	NZ_CP109982.1	100.0	36	0	0	1	36	5749	5714	8.65e-12	71.9	36	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer0	NZ_CP109982.1	100.0	36	0	0	1	36	299697	299662	8.65e-12	71.9	36	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer1	NZ_CP109982.1	100.0	37	0	0	1	37	5676	5640	2.31e-12	73.8	37	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer1	NZ_CP109982.1	100.0	37	0	0	1	37	299624	299588	2.31e-12	73.8	37	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer1	NZ_CP109786.1	100.0	37	0	0	1	37	13925	13961	2.31e-12	73.8	37	41784	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109786.1
+NZ_CP110252_1_1__spacer2	NZ_CP109982.1	100.0	36	0	0	1	36	5602	5567	8.65e-12	71.9	36	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer2	NZ_CP109982.1	100.0	36	0	0	1	36	299550	299515	8.65e-12	71.9	36	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer3	NZ_CP109982.1	100.0	35	0	0	1	35	5529	5495	3.23e-11	69.9	35	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer3	NZ_CP109982.1	100.0	35	0	0	1	35	299477	299443	3.23e-11	69.9	35	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer4	NZ_CP109982.1	100.0	26	0	0	1	26	5457	5432	4.01e-06	52.0	26	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP110252_1_1__spacer4	NZ_CP109982.1	100.0	26	0	0	1	26	299405	299380	4.01e-06	52.0	26	316817	100.0	NZ_CP110252_1_1	plasmid	p__Halobacteriota	f__Haloarculaceae	p__Halobacteriota	f__Haloarculaceae	NZ_CP109982.1
+NZ_CP135524_1_2__spacer11	CP135527.1	100.0	34	0	0	1	34	64216	64183	1.2e-10	67.9	34	76233	100.0	NZ_CP135524_1_2	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP135527.1
+NZ_CP135524_1_2__spacer75	CP135527.1	100.0	36	0	0	1	36	9765	9730	8.65e-12	71.9	36	76233	100.0	NZ_CP135524_1_2	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP135527.1
+NZ_CP135524_1_2__spacer88	CP135527.1	100.0	38	0	0	1	38	9442	9405	6.16e-13	75.8	38	76233	100.0	NZ_CP135524_1_2	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP135527.1
+NZ_CP135524_1_2__spacer88	NZ_CP119798.1	97.368	38	1	0	1	38	152916	152879	1.5e-10	67.9	38	176392	100.0	NZ_CP135524_1_2	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	NZ_CP119798.1
+NZ_CP135524_1_2__spacer88	NZ_CP119801.1	97.297	37	1	0	2	38	10195	10159	5.93e-10	65.9	38	58880	97.36842105263158	NZ_CP135524_1_2	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	NZ_CP119801.1
+NZ_CP135524_1_3__spacer2	NZ_CP119797.1	97.222	36	1	0	1	36	888725	888760	2.11e-09	63.9	36	916029	100.0	NZ_CP135524_1_3	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	NZ_CP119797.1
+NZ_CP135524_1_3__spacer3	CP135527.1	96.97	33	1	0	1	33	38674	38706	1.08e-07	58.0	33	76233	100.0	NZ_CP135524_1_3	plasmid	p__Halobacteriota	f__Natrialbaceae	p__Halobacteriota	f__Natrialbaceae	CP135527.1

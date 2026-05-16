@@ -1,0 +1,15 @@
+{
+  "n_nonhalo": 57,
+  "n_with_defense": 7,
+  "pct_with_defense": 12.3,
+  "fisher_OR_overall": 7.47,
+  "fisher_p_overall": 9.66e-09,
+  "n_shared_types": 4,
+  "shared_types": [
+    "AbiE",
+    "Cas",
+    "Ceres",
+    "RM"
+  ],
+  "n_halo_exclusive_types": 25
+}
