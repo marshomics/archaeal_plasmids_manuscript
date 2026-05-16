@@ -1,20 +1,6 @@
 #!/usr/bin/env python3
 """Validate the five-subtype topology against an independent metric.
 
-UPDATE vs streamlined_conjugation/06_dual_metric_topology.py
-------------------------------------------------------------
-Original forced `fcluster(Z, t=5, criterion='maxclust')`, cutting the
-Ward dendrogram at exactly k=5 to match HDBSCAN. That guarantees the
-partitions have the same cardinality and makes any "same topology"
-claim circular.
-
-This version asks whether the Clinker distance matrix *independently
-prefers* k=5:
-  (a) sweeps k = 2..10 on Ward, reporting silhouette and the elbow in
-      Ward height (gap-statistic substitute);
-  (b) reports ARI at each k vs the HDBSCAN partition;
-  (c) only at the end shows the k=5 confusion matrix and purity,
-      with the caveat that this is the imposed comparison.
 """
 import sys
 from pathlib import Path
