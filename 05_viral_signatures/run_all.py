@@ -2,6 +2,7 @@
 import importlib
 
 for mod in (
+    "generate_fisher_enrichment",
     "01_viral_prevalence",
     "02_category_hierarchy",
     "03_complexity_distribution",
