@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-"""Phylum carrier rates within isolate-only and complete-genome-only subsets."""
+"""Phylum carrier rates within isolate-only and complete-genome-only subsets.
+
+Halo-vs-each-phylum Fisher tests across the three subsets are pooled and
+BH-FDR-corrected so the multiplicity of the robustness sweep is controlled.
+"""
+import pandas as pd
+from pathlib import Path
 from scipy import stats
+from statsmodels.stats.multitest import multipletests
 
 from common import load_data, header
 
@@ -21,7 +28,7 @@ def _fisher_vs_halo(df, target):
 
 def main():
     reps, _, reps_meta = load_data()
-    header("QUALITY-SUBSET ROBUSTNESS")
+    header("QUALITY-SUBSET ROBUSTNESS (BH-FDR across subsets × phyla)")
 
     carrier_phyla = sorted(
         reps.loc[reps['is_carrier'] == 1, 'gtdb_phylum'].dropna().unique())
@@ -32,6 +39,7 @@ def main():
         'Complete genomes only':           reps_meta[reps_meta['ncbi_assembly_level'] == 'Complete Genome'],
     }
 
+    # Print descriptive rates per subset
     for name, df in subsets.items():
         print(f"\n--- {name} (n = {len(df)}) ---")
         for phy in carrier_phyla:
@@ -39,14 +47,36 @@ def main():
             rate = c / n * 100 if n else 0.0
             print(f"  {phy:<26} {c}/{n} ({rate:.1f}%)")
 
-        halo_label = 'p__Halobacteriota'
+    # Collect all Fisher tests, then BH-correct
+    halo_label = 'p__Halobacteriota'
+    rows = []
+    for name, df in subsets.items():
         for target in (p for p in carrier_phyla if p != halo_label):
             res = _fisher_vs_halo(df, target)
             if res is None:
                 continue
             h_c, h_n, t_c, t_n, OR, p = res
-            print(f"  Fisher Halo vs {target}: "
-                  f"{h_c}/{h_n} vs {t_c}/{t_n}  OR = {OR:.2f}, p = {p:.2e}")
+            rows.append({
+                'subset': name, 'target': target,
+                'halo_carrier': h_c, 'halo_n': h_n,
+                'target_carrier': t_c, 'target_n': t_n,
+                'OR': OR, 'p_raw': p,
+            })
+
+    fisher = pd.DataFrame(rows)
+    fisher['p_BH'] = multipletests(fisher['p_raw'], method='fdr_bh')[1]
+    fisher = fisher.sort_values(['subset', 'p_BH'])
+
+    out_dir = Path(__file__).resolve().parent / "outputs"
+    out_dir.mkdir(exist_ok=True)
+    fisher.to_csv(out_dir / "quality_subset_fisher_bh.csv", index=False)
+
+    print("\n--- Fisher Halo vs each carrier phylum (BH-FDR across all tests) ---")
+    for _, r in fisher.iterrows():
+        marker = " *" if r['p_BH'] < 0.05 else ""
+        print(f"  [{r['subset']:<35}] {r['target']:<26} "
+              f"{r['halo_carrier']}/{r['halo_n']} vs {r['target_carrier']}/{r['target_n']} "
+              f"OR = {r['OR']:.2f}, p = {r['p_raw']:.2e}, q = {r['p_BH']:.2e}{marker}")
 
     print("\nMAG proportion per carrier phylum:")
     for phy in carrier_phyla:

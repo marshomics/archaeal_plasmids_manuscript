@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Permutation O/E with carrier status shuffled within depth bins."""
+"""Permutation O/E with carrier status shuffled within depth bins.
+
+Two-sided p-values (mass at least as extreme as |obs - exp|) and
+BH-FDR adjustment across the tested carrier phyla. Also writes a CSV.
+"""
 import numpy as np
+import pandas as pd
+from statsmodels.stats.multitest import multipletests
 
 from common import load_data, header
 
@@ -14,7 +20,7 @@ def _depth_bin(n):
 
 def main():
     reps, _, _ = load_data()
-    header("DEPTH-MATCHED O/E PERMUTATION")
+    header("DEPTH-MATCHED O/E PERMUTATION (TWO-SIDED, BH-FDR)")
 
     reps = reps.copy()
     reps['depth_bin'] = reps['n_genomes'].apply(_depth_bin)
@@ -47,18 +53,36 @@ def main():
 
     carrier_phyla = sorted(p for p in observed.index if observed.get(p, 0) > 0)
     print(f"Permutations: {n_perm}\n")
-    print(f"{'Phylum':<28} {'Obs':>5} {'Exp':>8} {'O/E':>7} {'p':>10}")
-    print("-" * 64)
+
+    rows = []
     for phy in carrier_phyla:
         obs = observed.get(phy, 0)
         exp = expected[phy]
         oe = obs / exp if exp > 0 else float('inf')
-        if obs >= exp:
-            p = (perm_counts[phy] >= obs).mean()
-        else:
-            p = (perm_counts[phy] <= obs).mean()
-        p_str = f"{p:.4f}" if p > 0 else "<0.0001"
-        print(f"{phy:<28} {obs:>5.0f} {exp:>8.1f} {oe:>7.2f} {p_str:>10}")
+        deviation = abs(obs - exp)
+        # two-sided p = fraction of permuted phyla counts as far or further from exp
+        perm_dev = np.abs(perm_counts[phy] - exp)
+        p_two = ((perm_dev >= deviation).sum() + 1) / (n_perm + 1)
+        rows.append({'phylum': phy, 'observed': obs, 'expected': round(exp, 1),
+                     'O_over_E': round(oe, 2), 'p_two_sided': p_two})
+
+    df = pd.DataFrame(rows)
+    df['p_BH'] = multipletests(df['p_two_sided'], method='fdr_bh')[1]
+    df = df.sort_values('p_BH')
+
+    # Write CSV next to other outputs
+    from pathlib import Path
+    out_dir = Path(__file__).resolve().parent / "outputs"
+    out_dir.mkdir(exist_ok=True)
+    df.to_csv(out_dir / "depth_matched_permutation.csv", index=False)
+
+    print(f"{'Phylum':<28} {'Obs':>5} {'Exp':>8} {'O/E':>7} {'p_two':>10} {'p_BH':>10}")
+    print("-" * 74)
+    for _, r in df.iterrows():
+        p_str = f"{r['p_two_sided']:.4f}" if r['p_two_sided'] > 1/(n_perm+1) else f"<{1/(n_perm+1):.4f}"
+        q_str = f"{r['p_BH']:.4f}"
+        print(f"{r['phylum']:<28} {int(r['observed']):>5} {r['expected']:>8.1f} "
+              f"{r['O_over_E']:>7.2f} {p_str:>10} {q_str:>10}")
 
 
 if __name__ == "__main__":
