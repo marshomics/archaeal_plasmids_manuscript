@@ -627,17 +627,21 @@ def _fisher_table_with_bh(reps_meta, reps):
 
 
 def _plot_one_subset(table, subset_name, save_stem):
-    sub = table[table['subset'] == subset_name].copy()
-    # bar order: Halo first (always), then target phyla sorted by descending carrier rate
+    sub = table[table['subset'] == subset_name].copy().set_index('target')
     halo_label = 'p__Halobacteriota'
-    halo_row = sub.iloc[0]  # any row works for Halo n/k
-    sub['t_rate'] = 100 * sub['t_c'] / sub['t_n']
-    sub = sub.sort_values('t_rate', ascending=False)
+    halo_row = sub.iloc[0]  # any row carries the Halo (h_c, h_n)
+    # Fixed phylum order across both panels — matches the other Fig 2 panels.
+    fixed_order = ['p__Halobacteriota', 'p__Methanobacteriota',
+                   'p__Methanobacteriota_B', 'p__Thermoproteota',
+                   'p__Thermoplasmatota']
     bars = [(halo_label, int(halo_row['h_c']), int(halo_row['h_n']))]
-    for _, r in sub.iterrows():
-        bars.append((r['target'], int(r['t_c']), int(r['t_n'])))
+    for phy in fixed_order:
+        if phy == halo_label or phy not in sub.index:
+            continue
+        r = sub.loc[phy]
+        bars.append((phy, int(r['t_c']), int(r['t_n'])))
 
-    fig, ax = plt.subplots(figsize=(6.0, 3.6))
+    fig, ax = plt.subplots(figsize=(6.0, 3.8))
     x = np.arange(len(bars))
     rates = [100 * c / n for _, c, n in bars]
     colours = [PHY_COLOURS.get(p, '#666') for p, _, _ in bars]
@@ -646,23 +650,27 @@ def _plot_one_subset(table, subset_name, save_stem):
     for xi, (p, c, n) in zip(x, bars):
         ax.text(xi, 100 * c / n + 0.5, f"{c}/{n}", ha='center', va='bottom',
                 fontsize=8)
-    # significance brackets above bars: Halo vs each target
+    # significance brackets above bars: Halo vs each target, in the order
+    # the bars appear.
     y_top = max(rates) * 1.08
     step = max(rates) * 0.10
-    for j, (_, r) in enumerate(sub.iterrows()):
-        q = r['p_BH']
+    for j, (phy, _, _) in enumerate(bars[1:], start=1):
+        q = float(sub.loc[phy, 'p_BH'])
         col = '#a30' if q < 0.05 else '#777'
-        x_left, x_right = 0, j + 1
-        y = y_top + step * j
-        ax.plot([x_left, x_left, x_right, x_right], [y - step*0.2, y, y, y - step*0.2],
+        x_left, x_right = 0, j
+        y = y_top + step * (j - 1)
+        ax.plot([x_left, x_left, x_right, x_right],
+                [y - step * 0.2, y, y, y - step * 0.2],
                 color='lightgray', lw=0.7)
-        ax.text((x_left + x_right) / 2, y + 0.1, f"q = {q:.2g}",
+        # Choose format based on size of q (compact for tiny values)
+        q_str = f"{q:.1e}" if q < 1e-3 else f"{q:.3f}"
+        ax.text((x_left + x_right) / 2, y + 0.1, f"q = {q_str}",
                 ha='center', va='bottom', fontsize=8, color=col)
     ax.set_xticks(x)
-    ax.set_xticklabels([_short(p) for p, _, _ in bars], rotation=20,
+    ax.set_xticklabels([_short(p) for p, _, _ in bars], rotation=25,
                        ha='right', fontsize=8)
     ax.set_ylabel('Carrier rate (%)')
-    ax.set_ylim(0, y_top + step * len(sub) + 3)
+    ax.set_ylim(0, y_top + step * (len(bars) - 1) + 3)
     ax.spines[['top', 'right']].set_visible(False)
     plt.tight_layout()
     _save(fig, save_stem)
