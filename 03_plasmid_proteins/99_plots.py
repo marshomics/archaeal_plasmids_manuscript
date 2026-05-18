@@ -29,6 +29,7 @@ from common import (ARCHAEAL_EGGNOG, CLUSTER_TSV, CLUSTER_SUMMARY,
                     COG_DESCRIPTIONS, FAM_MIN, OUT_DIR, PSEUDO, N_PERM,
                     header)  # noqa
 
+MIN_TOTAL_COUNT = 50   # match 06_archaea_only_clr_enrichment.py threshold
 FIG_DIR = OUT_DIR / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -309,7 +310,7 @@ def compute_cog_enrichment():
         c = int(round(ao))
         b = int(round((eg['cluster_type'] == 'cross-domain').sum() - cd))
         d = int(round((eg['cluster_type'] == 'archaea-only').sum() - ao))
-        if a + c < 1:
+        if a + c < MIN_TOTAL_COUNT:
             continue
         OR, p = stats.fisher_exact([[a, b], [c, d]])
         rows.append({'COG': letter, 'description': COG_DESCRIPTIONS[letter],
@@ -650,8 +651,14 @@ def compute_clr_tables():
 
     mat = (long.groupby(['replicon', 'cog'])['w'].sum()
                 .unstack(fill_value=0)
-                .reindex(columns=sorted(cog_letters), fill_value=0)
-                .add(PSEUDO))
+                .reindex(columns=sorted(cog_letters), fill_value=0))
+    # Drop sparse COG categories (pseudocount-only artefact if kept)
+    sparse = mat.columns[mat.sum(0) < MIN_TOTAL_COUNT].tolist()
+    if sparse:
+        print(f"  compute_clr_tables: dropping {len(sparse)} sparse COGs "
+              f"(< {MIN_TOTAL_COUNT} total weight): {sparse}")
+        mat = mat.drop(columns=sparse)
+    mat = mat.add(PSEUDO)
     log_mat = np.log(mat)
     clr = log_mat.sub(log_mat.mean(axis=1), axis=0)
 
@@ -746,22 +753,6 @@ def plot_phylum_clr_delta_heatmap(phylum_table):
     plt.tight_layout()
     _save(fig, "fig3C_phylum_clr_delta")
 
-
-def plot_phylum_clr_raw_heatmap(phylum_table):
-    df = phylum_table[phylum_table['group'].isin(CARRIER_PHYLA)].copy()
-    group_order = CARRIER_PHYLA  # canonical order
-    # COG ordering: by mean CLR descending across phyla
-    cog_order = (df.groupby('cog')['mean_clr'].mean()
-                   .sort_values(ascending=False).index.tolist())
-    vmax = float(np.percentile(np.abs(df['mean_clr']), 95))
-    fig, ax = plt.subplots(figsize=(max(8, 0.42 * len(cog_order)),
-                                    max(2.5, 0.6 * len(group_order))))
-    im = _heatmap(ax, df, 'mean_clr', group_order, cog_order,
-                  vmin=-vmax, vmax=vmax)
-    cbar = fig.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
-    cbar.set_label('CLR value', fontsize=8)
-    plt.tight_layout()
-    _save(fig, "extE_phylum_clr_raw")
 
 
 def plot_family_clr_delta_heatmap(family_table):
@@ -1087,7 +1078,6 @@ def main():
     print("\nComputing CLR enrichment (this can take a few minutes)...")
     phylum_table, family_table = compute_clr_tables()
     plot_phylum_clr_delta_heatmap(phylum_table)
-    plot_phylum_clr_raw_heatmap(phylum_table)
     plot_family_clr_delta_heatmap(family_table)
 
     print("\nAnnotation distribution panels:")

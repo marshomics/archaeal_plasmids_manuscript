@@ -37,15 +37,23 @@ def _clr_transform(count_df, pseudo):
     return log_counts.sub(geo_mean, axis=0)
 
 
+EXCLUDE_COGS = {'R', 'S'}   # R = general prediction; S = unknown function
+
+
 def _weighted_cog_rows(df):
-    """One row per (replicon, COG) with weight = 1/k for each protein."""
+    """One row per (replicon, COG) with weight = 1/k for each protein.
+
+    R and S are excluded so the CLR is computed over characterised
+    functional categories only.  Proteins whose only COG letter is R or S
+    (or that are unannotated) are dropped entirely.
+    """
     df = df.copy()
-    df['COG_category'] = df['COG_category'].fillna('S')
     rows = []
     for _, r in df.iterrows():
-        cogs = [c for c in str(r['COG_category']) if c in COG_DESCRIPTIONS]
+        cogs = [c for c in str(r['COG_category'])
+                if c in COG_DESCRIPTIONS and c not in EXCLUDE_COGS]
         if not cogs:
-            cogs = ['S']
+            continue          # unannotated / S-only / R-only → skip
         w = 1.0 / len(cogs)
         for c in cogs:
             rows.append({'replicon': r['replicon'],
