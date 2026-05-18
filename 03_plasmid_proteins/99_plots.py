@@ -262,27 +262,30 @@ def plot_per_phylum_cd_counts(clusters):
 # COG enrichment helper (Fisher cross-domain vs archaea-only with fractional
 # weights for multi-letter COGs). Returns DataFrame keyed by COG with OR + q.
 # ===========================================================================
+def _normalize_id(pid):
+    import re
+    m = re.match(r'^(.+)_(\d+)$', str(pid))
+    if m:
+        return f'{m.group(1)}_{int(m.group(2)):05d}'
+    return pid
+
+
 def compute_cog_enrichment():
     eg = pd.read_csv(ARCHAEAL_EGGNOG, sep='\t', low_memory=False)
-    # Restrict to archaeal proteins that belong to clusters we've classified
-    # (cross-domain vs archaea-only). The eggnog table already represents
-    # archaeal plasmid proteins. We need to label them by cluster_type, which
-    # requires a join via the cluster TSV — but we can shortcut by reading
-    # the cluster_summary built earlier and looking up each protein's
-    # cluster_rep via the raw TSV (expensive).
-    # The eggnog table doesn't carry cluster IDs by default, so we read the
-    # raw cluster TSV again to label proteins.
-    cl = pd.read_csv(CLUSTER_TSV, sep='\t', usecols=[0, 1, 2], dtype=str,
-                     low_memory=True,
-                     names=['cluster_rep', 'member', 'domain'], header=0)
-    cl.loc[cl['domain'].isna(), 'domain'] = 'd__Archaea'
-    cl = cl[cl['domain'] == 'd__Archaea'][['cluster_rep', 'member']]
+    eg['pid'] = eg['proteins'].apply(_normalize_id)
+    # Build member → cluster_rep map from cluster TSV
+    import csv
+    member_cluster = {}
+    with open(CLUSTER_TSV) as f:
+        reader = csv.reader(f, delimiter='\t')
+        next(reader)
+        for row in reader:
+            member_cluster[row[1]] = row[0]
+    eg['cluster_rep'] = eg['pid'].map(member_cluster)
+    eg = eg.dropna(subset=['cluster_rep'])
     # cluster_type
     summary = load_cluster_summary()[['cluster_rep', 'cluster_type']]
-    cl = cl.merge(summary, on='cluster_rep', how='left')
-    # member id is the same as eggnog `query` / first column?
-    eg_first = eg.columns[0]
-    eg = eg.merge(cl, left_on=eg_first, right_on='member', how='left')
+    eg = eg.merge(summary, on='cluster_rep', how='left')
     eg = eg.dropna(subset=['cluster_type'])
 
     rows = []
@@ -414,19 +417,31 @@ def plot_tripartite_sankey(clusters):
     # cog enrichment table by phylum. Computing it requires reading eggnog —
     # we already do that inside compute_cog_enrichment, but for the per-phylum
     # split we need a re-load. Use the eggnog table directly here.
+    import csv as _csv
     eg = pd.read_csv(ARCHAEAL_EGGNOG, sep='\t', low_memory=False)
-    eg_first = eg.columns[0]
+    eg['pid'] = eg['proteins'].apply(_normalize_id)
+    # Build member → cluster_rep map
+    _member_cluster = {}
+    with open(CLUSTER_TSV) as _f:
+        _reader = _csv.reader(_f, delimiter='\t')
+        next(_reader)
+        for _row in _reader:
+            _member_cluster[_row[1]] = _row[0]
+    eg['cluster_rep'] = eg['pid'].map(_member_cluster)
+    eg = eg.dropna(subset=['cluster_rep'])
+    # Add cluster_type and phylum from cluster TSV (archaea only, cross-domain)
     cl_arch = pd.read_csv(CLUSTER_TSV, sep='\t', usecols=[0, 1, 2, 3],
                           dtype=str, low_memory=True,
                           names=['cluster_rep', 'member', 'domain', 'phylum'],
                           header=0)
     cl_arch.loc[cl_arch['domain'].isna(), 'domain'] = 'd__Archaea'
     cl_arch = cl_arch[cl_arch['domain'] == 'd__Archaea']
+    # Get phylum per cluster_rep (first archaeal member's phylum)
+    rep_phylum = cl_arch.drop_duplicates('cluster_rep').set_index('cluster_rep')['phylum']
     summary = load_cluster_summary()[['cluster_rep', 'cluster_type']]
-    cl_arch = cl_arch.merge(summary, on='cluster_rep', how='left')
-    cl_arch = cl_arch[cl_arch['cluster_type'] == 'cross-domain']
-    eg = eg.merge(cl_arch[['member', 'phylum', 'cluster_type']],
-                  left_on=eg_first, right_on='member', how='inner')
+    eg = eg.merge(summary, on='cluster_rep', how='left')
+    eg = eg[eg['cluster_type'] == 'cross-domain']
+    eg['phylum'] = eg['cluster_rep'].map(rep_phylum)
 
     def _has_cog(cog_str, letter):
         if pd.isna(cog_str) or cog_str == '-':
@@ -511,6 +526,9 @@ def _bezier_flow(ax, x1, y1, x2, y2, width, color, alpha):
 # Fig 3B — standardized residuals (archaeal family × bacterial phylum)
 # ===========================================================================
 def plot_partner_residuals_heatmap(clusters):
+    import seaborn as sns
+    MIN_MARGINAL = 5
+
     cd = clusters[clusters['cluster_type'] == 'cross-domain'].copy()
     cd['fam_list'] = cd['archaea_families'].fillna('').str.split('|')
     cd['bp_list']  = cd['bacteria_phyla'].fillna('').str.split('|')
@@ -518,36 +536,79 @@ def plot_partner_residuals_heatmap(clusters):
                [['fam_list', 'bp_list']])
     pairs = pairs[(pairs['fam_list'] != '') & (pairs['bp_list'] != '')]
     table = pd.crosstab(pairs['fam_list'], pairs['bp_list'])
-    # Drop rows / cols with low totals so visualisation isn't dominated by noise
-    table = table.loc[table.sum(axis=1) >= 20, table.sum(axis=0) >= 20]
+
+    # Filter to marginal counts >= MIN_MARGINAL (matches script 05)
+    keep_rows = table.index[table.sum(axis=1) >= MIN_MARGINAL]
+    keep_cols = table.columns[table.sum(axis=0) >= MIN_MARGINAL]
+    table = table.loc[keep_rows, keep_cols]
     if table.empty:
         print("    skipping fig3B: no families × phyla pairs survive filter")
         return
-    # Standardised residuals (Pearson, with finite-sample correction)
-    chi2, p, dof, expected = stats.chi2_contingency(table, correction=False)
-    n = table.values.sum()
-    row_sums = table.sum(axis=1).values[:, None]
-    col_sums = table.sum(axis=0).values[None, :]
-    std_resid = (table.values - expected) / np.sqrt(
-        expected * (1 - row_sums / n) * (1 - col_sums / n))
-    sr = pd.DataFrame(std_resid, index=table.index, columns=table.columns)
-    # Order families by row sum descending; columns by column sum descending
-    sr = sr.loc[table.sum(axis=1).sort_values(ascending=False).index,
-                table.sum(axis=0).sort_values(ascending=False).index]
 
-    fig, ax = plt.subplots(figsize=(max(6, 0.35 * sr.shape[1]),
-                                    max(4, 0.32 * sr.shape[0])))
+    # Standard Pearson residuals: (O - E) / sqrt(E)
+    chi2, p, dof, expected = stats.chi2_contingency(table, correction=False)
+    residuals = (table.values - expected) / np.sqrt(expected)
+    sr = pd.DataFrame(residuals,
+                      index=[_short(f) for f in table.index],
+                      columns=[_short(c) for c in table.columns])
+    obs = pd.DataFrame(table.values,
+                       index=sr.index, columns=sr.columns)
+
+    # Fixed archaeal family order (matches publication figure)
+    FAMILY_ORDER = [
+        'Natrialbaceae', 'Haloferacaceae', 'Haloarculaceae',
+        'Haladaptataceae', 'Halobacteriaceae', 'QS-9-68-17',
+        'Halalkalicoccaceae', 'Halococcaceae', 'Methanosarcinaceae',
+        'Thermococcaceae', 'GW2011-AR1', 'Methanocaldococcaceae',
+        'Nitrosopumilaceae', 'Methanothermobacteraceae', 'Methanobacteriaceae',
+    ]
+    row_order = [f for f in FAMILY_ORDER if f in sr.index]
+    col_order = obs.sum(axis=0).sort_values(ascending=False).index
+    sr = sr.loc[row_order, col_order]
+    obs = obs.loc[row_order, col_order]
+
+    # Build annotation: observed count, ** for |residual| >= 2, * for >= 1.96
+    annot_strs = pd.DataFrame("", index=sr.index, columns=sr.columns)
+    for fam in sr.index:
+        for bp in sr.columns:
+            r = sr.loc[fam, bp]
+            o = obs.loc[fam, bp]
+            if pd.isna(r):
+                continue
+            obs_int = int(o) if pd.notna(o) else ""
+            if abs(r) >= 2.0:
+                annot_strs.loc[fam, bp] = f"{obs_int}**"
+            elif abs(r) >= 1.96:
+                annot_strs.loc[fam, bp] = f"{obs_int}*"
+            else:
+                annot_strs.loc[fam, bp] = f"{obs_int}"
+
+    # Plot with seaborn heatmap
+    fig, ax = plt.subplots(figsize=(12, 7))
     vmax = max(abs(sr.values.min()), abs(sr.values.max()))
-    im = ax.imshow(sr.values, cmap='RdBu_r', vmin=-vmax, vmax=vmax,
-                   aspect='auto')
-    ax.set_xticks(np.arange(sr.shape[1]))
-    ax.set_xticklabels([_short(c) for c in sr.columns], rotation=80,
-                       ha='right', fontsize=7)
-    ax.set_yticks(np.arange(sr.shape[0]))
-    ax.set_yticklabels([_short(r) for r in sr.index], fontsize=8)
-    ax.set_title('Family', fontsize=9, pad=8)
-    cbar = fig.colorbar(im, ax=ax, shrink=0.7, pad=0.02)
-    cbar.set_label('Standardized residual', fontsize=8)
+    vmax = min(vmax, 5.5)
+
+    sns.heatmap(sr, ax=ax, cmap='RdBu_r', center=0, vmin=-vmax, vmax=vmax,
+                linewidths=0.5, linecolor='white',
+                annot=annot_strs.values, fmt='', annot_kws={'fontsize': 7.5},
+                cbar_kws={'label': 'Standardized residual', 'shrink': 0.7})
+
+    # Bold significant cells
+    for i in range(sr.shape[0]):
+        for j in range(sr.shape[1]):
+            r = sr.iloc[i, j]
+            if pd.notna(r) and abs(r) >= 2.0:
+                text = ax.texts[i * sr.shape[1] + j]
+                text.set_fontweight('bold')
+                text.set_fontsize(8)
+
+    ax.set_xlabel('Bacterial phylum', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Archaeal family', fontsize=12, fontweight='bold')
+    ax.set_title('Partner specificity: χ² standardized residuals\n'
+                 '(cell values = observed cluster count; ** |residual| ≥ 2)',
+                 fontsize=13, fontweight='bold', pad=15)
+    plt.xticks(rotation=40, ha='right')
+    plt.yticks(rotation=0)
     plt.tight_layout()
     _save(fig, "fig3B_partner_residuals")
 
