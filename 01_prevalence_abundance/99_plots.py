@@ -428,7 +428,7 @@ def plot_family_summary(reps):
     fam['mean_abundance'] = (fam['total_plasmids'] /
                              fam['n_carriers'].replace(0, np.nan))
     fam = fam.sort_values(['gtdb_phylum', 'pct_carriers'],
-                          ascending=[True, True])
+                          ascending=[False, True])
 
     n_fam = len(fam)
     fig, axes = plt.subplots(
