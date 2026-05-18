@@ -594,7 +594,7 @@ def plot_subtype_panels(type_df):
 
     # Bottom-left: RM type pie
     ax2 = fig.add_subplot(gs[1, 0])
-    rm = sub[sub['subtype'].str.contains('RM_', regex=False)].copy()
+    rm = sub[sub['subtype'].str.startswith('RM_')].copy()
     rm['short'] = rm['subtype'].str.replace('RM_', '', regex=False).str.replace('_', ' ')
     rm = rm.sort_values('instances', ascending=False)
     total_rm = int(rm['instances'].sum())
@@ -679,19 +679,16 @@ def plot_types_by_virb4(type_df):
 # ===========================================================================
 def plot_spacers_per_plasmid():
     # Parse the spacer FASTA — each header is >plasmid_arrayN__spacerM
+    # Keep each array as a separate entry (do NOT collapse to parent plasmid)
     counts = defaultdict(int)
     with open(SPACER_FASTA) as f:
         for ln in f:
             if not ln.startswith('>'):
                 continue
-            base = ln[1:].strip().split('__spacer')[0]
-            # strip trailing _\d (array id) to get plasmid id
-            import re
-            m = re.match(r'^(.*?)_\d+$', base)
-            plas = m.group(1) if m else base
-            counts[plas] += 1
+            array_id = ln[1:].strip().split('__spacer')[0]
+            counts[array_id] += 1
     vals = np.array(list(counts.values()))
-    n_plasmids = len(counts)
+    n_arrays = len(counts)
     total_spacers = int(vals.sum())
     median_v = float(np.median(vals))
 
@@ -706,8 +703,8 @@ def plot_spacers_per_plasmid():
     ax.text(median_v + vals.max() * 0.02, ax.get_ylim()[1] * 0.92,
             f"median = {median_v:.0f}", color='gray', fontsize=8)
     ax.text(0.98, 0.96,
-            f"n = {n_plasmids} plasmids\n{total_spacers:,} total spacers\n"
-            f"{arrays_with_hit} ({arrays_with_hit/n_plasmids*100:.0f}%) "
+            f"n = {n_arrays} plasmids\n{total_spacers:,} total spacers\n"
+            f"{arrays_with_hit} ({arrays_with_hit/n_arrays*100:.0f}%) "
             f"with ≥ 1 hit",
             transform=ax.transAxes, ha='right', va='top', fontsize=8,
             color='#444')
