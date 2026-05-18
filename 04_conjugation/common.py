@@ -9,6 +9,9 @@ Methodological inputs (loaded from data/, not hard-coded):
   - filtered_gbk_matrix.csv  154×154 Clinker BLAST-derived pairwise distance
                               matrix; used in step 06 for dual-metric topology
                               validation
+  - cluster_membership.tsv   88,532-row long-form protein clustering over
+                              388 plasmids; used in 99_plots for Jaccard
+                              distance UMAP
 """
 from pathlib import Path
 import pandas as pd
@@ -26,6 +29,7 @@ MECHANISM_FILE  = DATA_DIR / "mechanism_patterns.tsv"
 CLUSTER_CSV     = DATA_DIR / "mmseqs_clusters" / "final_cluster_assignments_5st.csv"
 CORE_ENRICH_TSV = DATA_DIR / "mmseqs_clusters" / "core_genes_enrichment.tsv"
 CLINKER_MATRIX  = DATA_DIR / "filtered_gbk_matrix.csv"
+MEMBERSHIP_FILE = DATA_DIR / "cluster_membership.tsv"
 
 
 def header(title):
