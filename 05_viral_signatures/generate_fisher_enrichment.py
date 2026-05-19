@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 """Generate the family × category Fisher enrichment/depletion table.
 
-Reconstructs `fisher_enrichment_final.csv`, which was previously a frozen
-pre-computed file with no upstream generation script.
-
 Method
 ------
 For each analysis stratum (all_families, halobacteriota_only):
