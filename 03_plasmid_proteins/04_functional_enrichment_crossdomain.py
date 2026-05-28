@@ -1,21 +1,5 @@
 #!/usr/bin/env python3
 """Per-COG Fisher enrichment, cross-domain vs archaea-only — single-COG protein attribution.
-
-UPDATE vs streamlined_cross_domain/04_functional_enrichment_crossdomain.py
---------------------------------------------------------------------------
-Original exploded multi-letter COG strings so a protein annotated "EG"
-contributed to both E and G counts. This inflated the per-COG totals
-above the true protein count and double-counted proteins in the Fisher
-contingency tables, making ORs anti-conservative and the bootstrap
-denominator wrong.
-
-This version splits the contribution: a protein with k COG letters
-contributes 1/k to each letter, so each protein's total contribution
-equals 1 regardless of how many letters it carries. The Fisher 2×2 then
-uses rounded integer counts (with the floor of contributions, summed) so
-the test still operates on whole-protein-equivalent totals. The pooled
-metabolic-OR bootstrap is resampled on proteins (one row per protein, not
-per (protein, letter)).
 """
 import sys
 from pathlib import Path
