@@ -1,23 +1,5 @@
 #!/usr/bin/env python3
 """Same-family CRISPR targeting with per-array (not per-hit) testing.
-
-UPDATE vs streamlined_defense_systems/08_crispr_within_family.py
-----------------------------------------------------------------
-Original treated each spacer hit as independent, so one array hitting
-many same-family targets contributed inflated significance. The
-manuscript's "~2x expected rate, particularly strong in Haloferacaceae
-and Natrialbaceae" carries pseudo-replication.
-
-This version:
-  (a) collapses to a per-array within-family fraction (each source
-      plasmid is one observation regardless of how many spacers it has);
-  (b) computes a permutation null in which each array's hits are
-      re-drawn from the empirical target-family distribution; the
-      observed per-array within-family fraction is compared against the
-      null mean and 95% percentile;
-  (c) for each source family, reports a per-array Fisher-style
-      comparison (arrays-with-same-family-hits / arrays-without)
-      against the array-level base rate, with BH-FDR across families.
 """
 import sys
 from pathlib import Path
