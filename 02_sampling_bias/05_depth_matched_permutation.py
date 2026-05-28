@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 """Permutation O/E with carrier status shuffled within depth bins.
-
-Two-sided p-values (mass at least as extreme as |obs - exp|) and
-BH-FDR adjustment across the tested carrier phyla. Also writes a CSV.
 """
 import numpy as np
 import pandas as pd
