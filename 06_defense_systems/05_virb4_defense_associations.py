@@ -40,7 +40,6 @@ def _fit_weighted_nb(y, X, weights):
 def main():
     header("VirB4-T4CP × DEFENCE (Halo only, species-weighted)")
 
-    # Load subtype file (burden and richness from subtypes, matching original)
     TAX_COLS = ['replicon', 'gtdb_phylum', 'gtdb_class', 'gtdb_order',
                 'gtdb_family', 'gtdb_genus', 'gtdb_species']
     sub_df = pd.read_csv(SUB_FILE, sep='\t')
