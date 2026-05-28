@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 """Generate every panel for the cross-domain plasmid-protein figure set.
-
-Outputs go to ``outputs/figures/`` next to this script. Every quantity is
-re-derived from the input data and the other scripts in this pipeline; no
-numbers are hard-coded. Each panel is written as both PNG (raster) and SVG
-(``svg.fonttype = 'none'`` so labels stay editable in vector software).
-
-Run as ``python 99_plots.py``. If ``outputs/cluster_summary.csv`` is missing
-or incomplete the script rebuilds it on-the-fly using the same logic as
-``00_build_cluster_summary.py``.
 """
 from collections import defaultdict
 import gc
@@ -414,10 +405,7 @@ def plot_tripartite_sankey(clusters):
         pd.DataFrame({'cog': cog_order, 'OR': [cog_or[c] for c in cog_order]}),
         how='cross'
     ))
-    # Approximate flow widths: per-(arch, cog) protein counts come from the
-    # cog enrichment table by phylum. Computing it requires reading eggnog —
-    # we already do that inside compute_cog_enrichment, but for the per-phylum
-    # split we need a re-load. Use the eggnog table directly here.
+
     import csv as _csv
     eg = pd.read_csv(ARCHAEAL_EGGNOG, sep='\t', low_memory=False)
     eg['pid'] = eg['proteins'].apply(_normalize_id)
@@ -467,9 +455,6 @@ def plot_tripartite_sankey(clusters):
             _bezier_flow(ax, X_LEFT + 0.15, y_p, X_MIDL, y_c, width=width,
                          color=col, alpha=0.5)
 
-    # Right ribbons: COG → bacterial phyla, width ∝ bacterial-phylum share
-    # of clusters containing that cog (approximate via uniform per-cog)
-    # We use the relative size of each bacterial phylum's CD share as weight.
     bact_weights = bact_counts['pct'].to_dict()
     bact_total_w = sum(bact_weights[b] for b in bact_order)
     for cog, y_c in zip(cog_order, cog_y):
