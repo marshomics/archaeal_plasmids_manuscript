@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 """Phylum carrier rates within isolate-only and complete-genome-only subsets.
-
-Halo-vs-each-phylum Fisher tests across the three subsets are pooled and
-BH-FDR-corrected so the multiplicity of the robustness sweep is controlled.
 """
 import pandas as pd
 from pathlib import Path
