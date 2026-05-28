@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 """Archaeal-family × bacterial-phylum contingency: χ² + Pearson residuals.
-
-Full table after filtering to marginal counts ≥ MIN_MARGINAL. The asymptotic
-χ² is unreliable when most cells have expected < 5, so a permutation test on
-shuffled phylum labels is run alongside.
 """
 from collections import Counter
 import numpy as np
