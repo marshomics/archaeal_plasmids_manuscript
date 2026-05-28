@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 """Catalogue sizes (source plasmid list and non-redundant set).
-
-NCBI query, host-assembly join, and MASH/ANI dedup steps are upstream and
-not in this repo. Run separately and drop the resulting catalogue and the
-source list into data/.
 """
 from pathlib import Path
 import pandas as pd
