@@ -7,11 +7,6 @@ numbers are hard-coded. Each panel is written as both PNG (raster) and SVG
 (``svg.fonttype = 'none'`` so labels stay editable in vector software).
 
 Run as ``python 99_plots.py``.
-
-Note on UMAPs: ``umap-learn`` is used if installed, otherwise the script
-falls back to ``sklearn.manifold.MDS`` on the same precomputed distance
-matrix. Both produce 2-D embeddings that preserve the subtype clustering;
-exact coordinates differ between algorithms.
 """
 from pathlib import Path
 import sys
