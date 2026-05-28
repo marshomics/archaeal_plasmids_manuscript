@@ -1,21 +1,5 @@
 #!/usr/bin/env python3
 """Defence count vs plasmid size with a size-permutation null for density.
-
-UPDATE vs streamlined_defense_systems/04_defense_vs_size.py
------------------------------------------------------------
-Original reported ρ(density, size) = -0.734 with a parametric Spearman p.
-Because density = count / size, the two variables share the size term in
-the denominator and a negative correlation is partly arithmetic.
-
-This version keeps the count-vs-size Spearman as published, then for the
-density-vs-size correlation adds:
-  (a) a permutation null in which size labels are shuffled relative to
-      count (so the arithmetic dependence is broken but the marginal
-      distributions of count and size are preserved); the empirical p is
-      the fraction of permuted ρ at least as extreme as observed;
-  (b) the ratio of observed |ρ| to the 95th-percentile null |ρ|, so the
-      reader can see how much of the observed correlation exceeds what
-      shuffling alone produces.
 """
 import sys
 from pathlib import Path
