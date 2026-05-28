@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 """Weighted permutation co-occurrence on every pair of defence types.
-
-UPDATE vs streamlined_defense_systems/03_cooccurrence_weighted_perm.py
-----------------------------------------------------------------------
-Original used N_PERM = 10,000, which puts the floor of the (k+1)/(N+1)
-estimator at 1e-4. The manuscript's "weighted permutation p = 1e-4"
-for BREX–RM is therefore the floor itself, not a measured value.
-
-This version raises N_PERM to 100,000 so that floors are pushed to
-~1e-5, and vectorises the permutation loop to keep runtime reasonable.
 """
 import sys
 from pathlib import Path
@@ -25,9 +16,6 @@ OUT_DIR = Path(__file__).resolve().parent / "outputs"
 OUT_DIR.mkdir(exist_ok=True)
 N_PERM = 50_000   # floor = 1/(N+1) ≈ 2e-5, well below the 1e-4 reported
 
-# Shared permutation matrix across pairs — one (N_PERM, n_plasmids) tensor
-# of row-independent shuffles built once and reused for every pair.
-# Correlations between pair p-values are absorbed by the BH-FDR step.
 _PERM_CACHE = {}
 
 
