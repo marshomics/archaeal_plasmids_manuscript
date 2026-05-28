@@ -188,8 +188,6 @@ def plot_type_prevalence(type_df, type_cols):
 
 # ===========================================================================
 # Fig 6E — defence-system co-occurrence network
-# Uses the cached outputs of 03_cooccurrence_weighted_perm.py if present;
-# otherwise recomputes the pairwise weighted-permutation table.
 # ===========================================================================
 def _cooccurrence_table(binary_type, type_cols):
     """Recompute the weighted permutation table (matches the analysis script)."""
