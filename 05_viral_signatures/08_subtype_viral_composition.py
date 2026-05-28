@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 """Viral complexity by VirB4-T4CP subtype: Kruskal-Wallis + Dunn post-hoc.
-
-Uses the deduplicated cluster file (one row per plasmid).  Two plasmids
-assigned to multiple subtypes (CP002989.1 → ST1/ST2; NZ_CP084474.1 →
-ST2/ST4) are excluded as ambiguous.  Same-subtype duplicates are resolved
-by retaining the row with the highest n_conserved_clusters.
 """
 import warnings
 warnings.filterwarnings('ignore')
@@ -22,7 +17,6 @@ def main():
     df, _, clusters, conj_list, complexity, _ = load_data()
 
     # ── Deduplicate ────────────────────────────────────────────────
-    # 1. Remove plasmids assigned to more than one subtype
     multi_st = (clusters.groupby('short_label')['hdbscan_cluster']
                 .nunique().pipe(lambda s: s[s > 1]).index)
     if len(multi_st) > 0:
@@ -30,7 +24,6 @@ def main():
               f"multiple subtypes: {', '.join(sorted(multi_st))}")
         clusters = clusters[~clusters['short_label'].isin(multi_st)].copy()
 
-    # 2. For same-subtype duplicates keep the best-supported row
     n_before = len(clusters)
     clusters = (clusters.sort_values('n_conserved_clusters', ascending=False)
                 .drop_duplicates(subset='short_label', keep='first')
