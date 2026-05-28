@@ -189,8 +189,6 @@ def plot_taxonomy_hierarchy(reps):
     COLUMN_X = [0, 4, 8, 12]
     COLUMN_W = 0.6
     PADDING = 1.0
-    # Each carrier contributes a unit height; gap between sibling nodes adds
-    # extra space. Compute total height per column to find max canvas height.
     col_heights = []
     for nodes in rank_nodes:
         h = sum(node_counts_of(node, ranks, node_counts, rank_nodes.index(nodes))
@@ -198,8 +196,6 @@ def plot_taxonomy_hierarchy(reps):
         col_heights.append(h)
     canvas_h = max(col_heights) + 2 * PADDING
 
-    # Compute y position of each node such that within each column the nodes
-    # are stacked top-to-bottom with their height proportional to carrier count.
     def _layout_column(nodes, rank_idx):
         positions = {}
         # start at top
@@ -250,10 +246,6 @@ def plot_taxonomy_hierarchy(reps):
                 ax.text(x + COLUMN_W + 0.15, (top + bottom) / 2, label,
                         ha='left', va='center', fontsize=7, color='#222')
 
-    # Draw flow ribbons. For each link, we have to know which vertical slice
-    # of the parent and child each contribution occupies. We track a cursor
-    # on each side and draw a cubic-bezier ribbon between corresponding
-    # slices.
     def _ordered_link_iter(rank_idx):
         """Yield (parent, child, count) ordered so that ribbons don't cross."""
         parent_rank = ranks[rank_idx]
