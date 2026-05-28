@@ -1,19 +1,5 @@
 #!/usr/bin/env python3
 """Plasmid- vs viral-targeting: per-array test as primary, pooled as secondary.
-
-UPDATE vs streamlined_defense_systems/07_crispr_targeting_enrichment.py
------------------------------------------------------------------------
-Original computed both a pooled χ² (treating every spacer hit as
-independent) and a per-array Wilcoxon. The manuscript leads with the
-pooled p = 4.7e-270, which inflates significance via pseudo-replication
-within arrays.
-
-This version inverts the emphasis:
-  (a) the per-array Wilcoxon is the headline test;
-  (b) the per-array median plasmid-target fraction and its
-      bootstrap 95% CI are the headline effect size;
-  (c) the pooled χ² is retained but flagged as secondary / inflated by
-      within-array dependence.
 """
 import sys
 from pathlib import Path
