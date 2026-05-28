@@ -1,19 +1,5 @@
 #!/usr/bin/env python3
 """Per-carrier plasmid abundance, Halo vs non-Halo, Fisher on single-plasmid carriers.
-
-UPDATE vs streamlined_results/02_abundance_distribution.py
-----------------------------------------------------------
-Original used a hard-coded cutoff `plasmid_abundance <= 4` to exclude
-"high-count outliers". That cutoff was undisclosed in the manuscript and
-preferentially trimmed the Halobacteriota arm.
-
-This version:
-  (a) replaces the hard cutoff with a Tukey upper-fence rule (Q3 + 1.5*IQR)
-      computed across all carriers, so the rule is data-driven and applied
-      symmetrically.
-  (b) reports a sensitivity analysis across cutoffs (no exclusion,
-      Q3+1.5*IQR, Q3+3*IQR, and the manuscript's >4) so the reader can see
-      how the Fisher p depends on the rule.
 """
 import sys
 from pathlib import Path
