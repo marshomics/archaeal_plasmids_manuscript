@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 """Phylum-level defence carriage; Halo vs non-Halo, species-weighted.
-
-Per-phylum descriptive rates are reported unweighted and species-weighted.
-The Halo vs non-Halo contrast is tested with a species-frequency-weighted
-permutation on the difference in weighted carrier proportions (10,000
-iterations, two-sided). A plain two-sided Fisher exact is also reported for
-reference but the weighted permutation is the primary inference.
 """
 import numpy as np
 import pandas as pd
