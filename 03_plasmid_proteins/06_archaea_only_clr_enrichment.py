@@ -1,19 +1,5 @@
 #!/usr/bin/env python3
 """Intra-archaea CLR enrichment — single-COG attribution per protein.
-
-UPDATE vs streamlined_cross_domain/06_archaea_only_clr_enrichment.py
---------------------------------------------------------------------
-Original `_explode_cog` produced one row per (replicon, COG-letter),
-so a protein with k COG letters contributed k times to that replicon's
-COG totals. After grouping to a plasmid × COG matrix this inflated the
-row sums above the true protein count and biased the CLR geometric mean
-and the per-letter deltas.
-
-This version uses weighted contributions: a protein's contribution to
-each of its k COG letters is 1/k. The plasmid × COG count matrix is then
-the sum of these per-letter weights per plasmid, preserving the
-invariant that each plasmid's total weight equals its annotated protein
-count.
 """
 import sys
 from pathlib import Path
