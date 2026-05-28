@@ -384,11 +384,6 @@ def plot_positional_conservation():
         print("  skipping positional conservation: no matching data")
         return
 
-    # ----- 5. Identify positionally conserved PCs -----------------------
-    #   A PC is "positionally conserved" if it occupies the same VirB4-
-    #   relative offset in ≥2 members of any single subtype.  This
-    #   filters out housekeeping genes (which sit at inconsistent offsets
-    #   across plasmids) and focuses on the syntenic conjugation region.
     conserved_pcs = set()
     for st, maps in st_plasmid_offsets.items():
         off_pc_count = Counter()
@@ -399,13 +394,6 @@ def plot_positional_conservation():
             if cnt >= 2:
                 conserved_pcs.add(pc)
 
-    # ----- 5b. Per-plasmid conjugation windows --------------------------
-    #   For each plasmid, the "conjugation window" is the range of offsets
-    #   that contain a conserved PC.  Within this window ALL genes count
-    #   toward "any gene present" (grey bars); outside it only conserved
-    #   PCs count.  This approximates the clinker synteny regions: the
-    #   conserved PCs anchor the boundaries while non-conserved genes
-    #   within the region contribute to the occupancy signal.
     st_plasmid_windows = defaultdict(list)  # st → [(lo, hi), …]
     for st, maps in st_plasmid_offsets.items():
         for m in maps:
@@ -415,12 +403,7 @@ def plot_positional_conservation():
                 st_plasmid_windows[st].append((min(cons_offs), max(cons_offs)))
             else:
                 st_plasmid_windows[st].append(None)
-
-    # ----- 6. Compute conservation fractions ----------------------------
-    #   Grey bars ("any gene present"): fraction of subtype members that
-    #     have ANY gene at offset *within their conjugation window*.
-    #   Coloured bars ("most common PC"): fraction sharing the dominant
-    #     conserved PC at each offset.
+              
     subtypes = sorted(st_plasmid_offsets.keys())
     scan_lo, scan_hi = -50, 50
     scan_offsets = list(range(scan_lo, scan_hi + 1))
@@ -450,13 +433,6 @@ def plot_positional_conservation():
                 frac_dom.append(dom_count / n if n else 0)
         st_data_wide[st] = (np.array(frac_any), np.array(frac_dom), n)
 
-    # ----- 7. Determine display range -----------------------------------
-    #   Use the *pooled* (all-subtype) dominant-PC fraction to find the
-    #   contiguous conjugation neighbourhood.  Pooling across subtypes
-    #   avoids noise from small subtypes where 2/9 plasmids sharing a PC
-    #   at a random position already yields dom_frac = 0.22.
-    #   After finding the conserved core, pad by a few positions on each
-    #   side to show flanking context.
     all_maps_pooled = [m for maps in st_plasmid_offsets.values() for m in maps]
     n_total = len(all_maps_pooled)
 
