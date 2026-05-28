@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
 """Logistic regression: phylum + depth + genome quality covariates.
-
-Part 1 — All species with NCBI metadata (~4.4k).
-Part 2 — Complete genomes only (~385): isolates the phylum signal after
-         removing the dominant detection confound (assembly fragmentation).
-Part 3 — Genome-quality-only model (no phylum) to quantify the confound.
-
-Reports coefficients with ORs, McFadden's pseudo-R², AUC-ROC, and
-likelihood-ratio tests for nested model comparisons.
 """
 import warnings
 warnings.filterwarnings('ignore')
